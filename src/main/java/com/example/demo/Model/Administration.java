@@ -1,4 +1,9 @@
 package com.example.demo.Model;
 
-public class Administration {
+public class Administration extends Person {
+
+
+
+
+
 }
