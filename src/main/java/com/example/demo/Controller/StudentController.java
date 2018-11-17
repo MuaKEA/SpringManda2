@@ -11,14 +11,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 
 @RestController
 public class StudentController {
-    public  Object[] myArraylist = new Object[5];
+
 
     @Autowired
     private StuRepository stuRepo;
@@ -31,4 +31,11 @@ public class StudentController {
         model.addAttribute("shadush",students);
         return new ResponseEntity(students, HttpStatus.OK);
     }
+
+    @PostMapping("/search/courses")
+    public ResponseEntity<MyArrayList> signUpForCourse(Student student){
+        Student stud = stuRepo.save(student);
+        return new ResponseEntity(stud, HttpStatus.OK);
+    }
+
 }

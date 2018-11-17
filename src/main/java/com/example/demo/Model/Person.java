@@ -10,6 +10,7 @@ public class Person {
     private String lastName;
     private String course;
 
+    public Person(){}
 
     public Person(String firstName, String lastName, String course) {
         this.firstName = firstName;
