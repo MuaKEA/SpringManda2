@@ -1,8 +1,9 @@
 package com.example.demo.Model;
 import java.lang.reflect.Type;
 import java.util.*;
+import java.util.function.Consumer;
 
-public class MyArrayList<T> implements MyList {
+public class MyArrayList<T> implements MyList,Iterable<T> {
     private int size = 0;
     public  Object[] myArraylist = new Object[5];
 
@@ -79,4 +80,24 @@ public class MyArrayList<T> implements MyList {
     }
 
 
+    @Override
+    public Iterator<T> iterator() {
+
+
+        return null;
+    }
+
+    @Override
+    public void forEach(Consumer<? super T> action) {
+            Objects.requireNonNull(action);
+            for (T t : this) {
+                action.accept(t);
+            }
+        }
+
+
+    @Override
+    public Spliterator<T> spliterator() {
+        return Spliterators.spliteratorUnknownSize(iterator(), 0);
+    }
 }
