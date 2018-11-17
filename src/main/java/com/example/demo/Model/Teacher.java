@@ -1,4 +1,5 @@
 package com.example.demo.Model;
 
-public class Teacher {
+public class Teacher extends Person {
+
 }

@@ -15,8 +15,16 @@ public class StudentController {
     @Autowired
     private StuRepository stuRepo;
 
-    @GetMapping("/")
-    public ResponseEntity<Student> getStudent(@PathVariable Long id) {
+    @GetMapping("/view/courses")
+        public String frontPage(){
 
+        return "index";
     }
 }
+
+    /*public ResponseEntity<Student> getStudent(@PathVariable Long id) {
+
+    }
+
+}
+*/
