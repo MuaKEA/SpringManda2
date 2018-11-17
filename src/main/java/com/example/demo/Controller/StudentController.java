@@ -27,14 +27,14 @@ public class StudentController {
 
     @GetMapping("/view/courses")
         public ResponseEntity<MyArrayList> viewCourse(Model model){
-        MyArrayList<Student> students = (MyArrayList<Student>) stuRepo.findAll();
+        MyArrayList<Student> students = (MyArrayList<Student>) StuRepository.findAll();
         model.addAttribute("shadush",students);
         return new ResponseEntity(students, HttpStatus.OK);
     }
 
     @PostMapping("/search/courses")
     public ResponseEntity<MyArrayList> signUpForCourse(Student student){
-        Student stud = stuRepo.save(student);
+        Student stud = StuRepository.save(student);
         return new ResponseEntity(stud, HttpStatus.OK);
     }
 
