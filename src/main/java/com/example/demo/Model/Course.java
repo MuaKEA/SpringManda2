@@ -1,12 +1,16 @@
 package com.example.demo.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Course {
-
-
-private String coursename;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    private Long id;
+    private String coursename;
 private String Course_language;
 private Integer ECTS;
 private Integer min_students;
@@ -133,6 +137,14 @@ public Course(){
 
     public void setTeachers(String teachers) {
         Teachers = teachers;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
 
