@@ -1,11 +1,11 @@
 package com.example.demo.Model;
 
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-
+@Entity
 public class Person {
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private String firstName;
     private String lastName;
     private String course;

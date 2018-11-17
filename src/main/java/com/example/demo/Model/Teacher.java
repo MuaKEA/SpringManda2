@@ -1,5 +1,8 @@
 package com.example.demo.Model;
 
-public class Teacher extends Person {
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
+public class Teacher extends Person {
+    @GeneratedValue(strategy = GenerationType.AUTO)
 }
