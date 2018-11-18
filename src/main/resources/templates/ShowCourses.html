@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>CAR</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light" id="nav_top">
+    <a class="navbar-brand" href="#">Navbar w/ text</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/thisIsTheURLCar">Cars <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <span class="navbar-text">
+      Welcome <span id="name_span"></span>
+    </span>
+    </div>
+</nav>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">coursename</th>
+        <th scope="col">Course language</th>
+        <th scope="col">ECTS</th>
+        <th scope="col">min students</th>
+        <th scope="col">max students</th>
+        <th scope="col">expectednumber</th>
+        <th scope="col">Prerequisites</th>
+        <th scope="col">Learning outcome</th>
+        <th scope="col">Content</th>
+        <th scope="col">Learning activities</th>
+        <th scope="col">Examform</th>
+        <th scope="col">Teachers</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="course:${/List}">
+        <td th:text="${course.coursename}"></td>
+        <td th:text="${course.Course_language}"></td>
+        <td th:text="${course.ECTS}"></td>
+        <td th:text="${course.Course_language}"></td>
+        <td th:text="${course.min_students}"></td>
+        <td th:text="${course.max_students}"></td>
+        <td th:text="${course.expectednumber}"></td>
+        <td th:text="${course.Prerequisites}"></td>
+        <td th:text="${course.Learning_outcome}"></td>
+        <td th:text="${course.Content}"></td>
+        <td th:text="${course.Learning_activities}"></td>
+        <td th:text="${course.Examform}"></td>
+        <td th:text="${course.Teachers}"></td>
+        <td><button type="submit" class="carButton">send</button></td>
+    </tr>
+
+    </tbody>
+</table>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+</body>
+</html>

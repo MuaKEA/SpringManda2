@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">>
 <head>
     <meta charset="UTF-8">
     <title>Start Page</title>
@@ -12,21 +12,60 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/layout.css">
 </head>
-<body>
-<form class="form-signin">
-    <div class="text-center mb-4">
-        <h1 class="h3 mb-3 font-weight-normal">Student</h1>
-    </div>
-    <div class="form-group">
 
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Courses
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-            </div>
-        </div>
+
+<body>
+<form class="form-signin"  method="post" action="/add/courses" >
+    <div>
+        <label>coursename: </label>
+        <input type="text" th:field="${course.coursename}" required="true"/>
     </div>
+    <div>
+        <label> Course language</label>
+        <input type="text" th:field="${course.Course_language}" required="true"/>
+    </div>
+    <div>
+
+        <label>ECTS</label>
+        <input type="text" th:field="${course.ECTS}" required="true"/>
+    </div>
+    <div>
+        <label>minimum students</label>
+        <input type="text" th:field="${course.min_students}" required="true"/>
+    </div>
+    <div>
+        <label>maximum students</label>
+        <input type="text" th:field="${course.max_students}"required="true"/>
+    </div>
+    <div>
+        <label>expected number</label>
+        <input type="text" th:field="${course.expectednumber}"required="true"/>
+    </div>
+    <div>
+        <label>Prerequisites</label>
+        <input type="text" th:field="${course.Prerequisites}"required="true"/>
+    </div>
+    <div>
+        <label>Learning outcome</label>
+        <input type="text" th:field="${course.Learning_outcome}"required="true"/>
+    </div>
+    <div>
+        <label>Content</label>
+        <input type="text" th:field="${course.Content}"required="true"/>
+    </div>
+    <div>
+        <label>activities</label>
+        <input type="text" th:field="${course.Learning_activities}"required="true"/>
+    </div>
+    <div>
+        <label>Examform</label>
+        <input type="text" th:field="${course.Examform}"required="true"/>
+    </div>
+    <div>
+        <label>Teachers</label>
+        <input type="text" th:field="${course.Teachers}"required="true"/>
+    </div>
+    <input type="submit" value="Send"/>
+
 </form>
 </body>
