@@ -1,5 +1,8 @@
 package com.example.demo.Model;
-public interface MyList<T> {
+
+import java.util.Iterator;
+
+public interface MyList<T> extends Iterator {
 
 
     int size();

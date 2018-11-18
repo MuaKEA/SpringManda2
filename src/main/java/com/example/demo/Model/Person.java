@@ -4,7 +4,6 @@ package com.example.demo.Model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-@Entity
 public class Person {
     private String firstName;
     private String lastName;

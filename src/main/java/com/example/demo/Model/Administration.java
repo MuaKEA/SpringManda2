@@ -4,7 +4,6 @@ import net.bytebuddy.implementation.bind.annotation.Super;
 
 import javax.persistence.Entity;
 
-@Entity
 public class Administration extends Person {
 private String course;
 

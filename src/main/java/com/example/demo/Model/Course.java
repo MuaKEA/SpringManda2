@@ -11,36 +11,44 @@ public class Course {
     @Id
     private Long id;
     private String coursename;
-private String Course_language;
-private Integer ECTS;
-private Integer min_students;
-private Integer max_students;
-private Integer expectednumber;
-private String Prerequisites;
-private String Learning_outcome;
-private String Content;
-private String Learning_activities;
-private String Examform;
-private String Teachers;
+    private String Course_language;
+    private Integer ECTS;
+    private Integer min_students;
+    private Integer max_students;
+    private Integer expectednumber;
+    private String Prerequisites;
+    private String Learning_outcome;
+    private String Content;
+    private String Learning_activities;
+    private String Examform;
+    private String Teachers;
 
 
     public Course(String coursename, String course_language, Integer ECTS, Integer min_students, Integer max_students, Integer expectednumber, String prerequisites, String learning_outcome, String content, String learning_activities, String examform, String teachers) {
         this.coursename = coursename;
-        Course_language = course_language;
+        this.Course_language = course_language;
         this.ECTS = ECTS;
         this.min_students = min_students;
         this.max_students = max_students;
         this.expectednumber = expectednumber;
-        Prerequisites = prerequisites;
-        Learning_outcome = learning_outcome;
-        Content = content;
-        Learning_activities = learning_activities;
-        Examform = examform;
-        Teachers = teachers;
+        this.Prerequisites = prerequisites;
+        this.Learning_outcome = learning_outcome;
+        this.Content = content;
+        this.Learning_activities = learning_activities;
+        this.Examform = examform;
+        this.Teachers = teachers;
     }
 
 
-public Course(){
+    public Course() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getCoursename() {
@@ -138,13 +146,4 @@ public Course(){
     public void setTeachers(String teachers) {
         Teachers = teachers;
     }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }
-

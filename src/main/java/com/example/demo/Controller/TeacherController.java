@@ -31,7 +31,7 @@ public class TeacherController {
     @PostMapping("/add/courses")
     public String saveCar(Course course){
         courseRepository.save(course);
-        return "redirect:/ShowCourses";
+        return "redirect:/view/courses";
     }
 
 
