@@ -26,7 +26,7 @@ public class Course {
 
     public Course(String courseName, String course_language, Integer ECTS, Integer min_students, Integer max_students, Integer expectednumber, String prerequisites, String learning_outcome, String content, String learning_activities, String examform, String teachers) {
         this.courseName = courseName;
-        this.Course_language = course_language;
+        Course_language = course_language;
         this.ECTS = ECTS;
         this.min_students = min_students;
         this.max_students = max_students;
@@ -38,7 +38,6 @@ public class Course {
         this.Examform = examform;
         this.Teachers = teachers;
     }
-
 
     public Course() {
     }
@@ -55,7 +54,7 @@ public class Course {
         return courseName;
     }
 
-    public void setCoursename(String coursename) {
+    public void setCourseName(String courseName) {
         this.courseName = courseName;
     }
 

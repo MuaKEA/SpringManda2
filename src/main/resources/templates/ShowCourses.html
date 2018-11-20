@@ -47,20 +47,25 @@
     </thead>
     <tbody>
 
+
+
     <tr th:each="course:${List}">
         <td th:text="${course.courseName}"></td>
-        <td th:text="${course.course_language}"></td>
+        <td th:text="${course.Course_language}"></td>
         <td th:text="${course.ECTS}"></td>
         <td th:text="${course.min_students}"></td>
         <td th:text="${course.max_students}"></td>
         <td th:text="${course.expectednumber}"></td>
-        <td th:text="${course.prerequisites}"></td>
-        <td th:text="${course.learning_outcome}"></td>
-        <td th:text="${course.content}"></td>
-        <td th:text="${course.learning_activities}"></td>
-        <td th:text="${course.examform}"></td>
-        <td th:text="${course.teachers}"></td>
-        <td><button type="submit" class="carButton">send</button></td>
+        <td th:text="${course.Prerequisites}"></td>
+        <td th:text="${course.Learning_outcome}"></td>
+        <td th:text="${course.Content}"></td>
+        <td th:text="${course.Learning_activities}"></td>
+        <td th:text="${course.Examform}"></td>
+        <td th:text="${course.Teachers}"></td>
+        <td>
+            <a th:href="@{'/redigerMedarbejdere?id='+${course.getId()}}" class="knap">Rediger</a>
+        </td>
+
     </tr>
 
     </tbody>

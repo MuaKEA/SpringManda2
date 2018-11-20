@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Rediger ansat</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+
+
+    <h2>edit course</h2>
+
+    <form class="genericForm" method="put" th:action="@{/editcourse}">
+        <div>
+            <label>course name: </label>
+            <input type="text" th:field="${course.courseName}"/>
+        </div>
+        <div>
+            <label>language: </label>
+            <input type="text" th:field="${course.Course_language}"/>
+        </div>
+        <div>
+            <label>min students</label>
+            <input type="text" th:field="${course.min_students}"/>
+        </div>
+        <div>
+            <label>max students</label>
+            <input type="text" th:field="${course.max_students}"/>
+        </div>
+        <div>
+            <label>expected number</label>
+            <input type="text" th:field="${course.expectednumber}"/>
+        </div>
+        <div>
+            <label>Prerequisites</label>
+            <input type="text" th:field="${course.Prerequisites}"/>
+        </div>
+        <div>
+            <label>Learning outcome</label>
+            <input type="text" th:field="${course.Learning_outcome}"/>
+        </div>
+        <div>
+            <label>Content</label>
+            <input type="text" th:field="${course.Content}"/>
+        </div>
+        <div>
+            <label>Learning activities</label>
+            <input type="text" th:field="${course.Learning_activities}"/>
+        </div>
+        <div>
+            <label>Examform</label>
+            <input type="text" th:field="${course.Examform}"/>
+        </div>
+        <div>
+            <label>Teachers</label>
+            <input type="text" th:field="${course.Teachers}"/>
+        </div>
+
+        <input type="submit" value="Gem">
+
+    </form>
+</body>
+</html>
