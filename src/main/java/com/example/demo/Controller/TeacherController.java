@@ -15,41 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 @Controller
 public class TeacherController {
 
-    @Autowired
-    public CourseRepository courseRepository;
 
-
-    @GetMapping("/add/courses")
-    public String Createcourse(Model model){
-        model.addAttribute("course",new Course());
-
-
-
-        return "save_course";
-    }
-
-    @PostMapping("/add/courses")
-    public String saveCar(Course course){
-        courseRepository.save(course);
-        return "redirect:/view/courses";
-    }
-
-
-    @GetMapping("/view/courses")
-    public String showCourse(Model model){
-        model.addAttribute("List",courseRepository.findAll());
-
-
-     return"ShowCourses";
-    }
-
-
-    @PostMapping("/Teacher/deletecourse")
-    public String delete(){
-
-
-return "redirect:/ShowCourses";
-    }
 
 
 

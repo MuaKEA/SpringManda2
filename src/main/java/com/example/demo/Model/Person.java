@@ -7,14 +7,12 @@ import javax.persistence.GenerationType;
 public class Person {
     private String firstName;
     private String lastName;
-    private String course;
 
     public Person(){}
 
-    public Person(String firstName, String lastName, String course) {
+    public Person(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.course = course;
     }
 
     public String getFirstName() {
@@ -33,12 +31,6 @@ public class Person {
         this.lastName = lastName;
     }
 
-    public String getCourse(){
-        return course;
-    }
 
-    public void setCourse(String course){
-        this.course = course;
-    }
 
 }

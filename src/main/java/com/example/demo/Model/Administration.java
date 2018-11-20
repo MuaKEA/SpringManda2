@@ -5,13 +5,14 @@ import net.bytebuddy.implementation.bind.annotation.Super;
 import javax.persistence.Entity;
 
 public class Administration extends Person {
-private String course;
 
+    public Administration() {
+    }
 
-    public Administration(String firstName, String lastName, String course){
-        super(firstName, lastName, course);
-
+    public Administration(String firstName, String lastName) {
+        super(firstName, lastName);
+    }
 }
 
 
-}
+
