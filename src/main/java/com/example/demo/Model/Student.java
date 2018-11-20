@@ -13,15 +13,15 @@ public class Student extends Person{
     private String adress;
     private int postcode;
     private Long mobil;
-    private int studentid;
+    private Long courseId;
 
 
-    public Student(String firstName, String lastName, String adress, int postcode, Long mobil, int studentid) {
+    public Student(String firstName, String lastName, String adress, int postcode, Long mobil, Long courseId) {
         super(firstName, lastName);
         this.adress = adress;
         this.postcode = postcode;
         this.mobil = mobil;
-        this.studentid = studentid;
+        this.courseId = courseId;
     }
 
     public Student(){
@@ -60,11 +60,11 @@ public class Student extends Person{
         this.mobil = mobil;
     }
 
-    public int getStudentid() {
-        return studentid;
+    public Long getCourseId() {
+        return courseId;
     }
 
-    public void setStudentid(int studentid) {
-        this.studentid = studentid;
+    public void setCourseIdd(int studentid) {
+        this.courseId = courseId;
     }
 }
