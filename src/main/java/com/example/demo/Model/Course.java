@@ -10,7 +10,7 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Long id;
-    private String coursename;
+    private String courseName;
     private String Course_language;
     private Integer ECTS;
     private Integer min_students;
@@ -24,8 +24,8 @@ public class Course {
     private String Teachers;
 
 
-    public Course(String coursename, String course_language, Integer ECTS, Integer min_students, Integer max_students, Integer expectednumber, String prerequisites, String learning_outcome, String content, String learning_activities, String examform, String teachers) {
-        this.coursename = coursename;
+    public Course(String courseName, String course_language, Integer ECTS, Integer min_students, Integer max_students, Integer expectednumber, String prerequisites, String learning_outcome, String content, String learning_activities, String examform, String teachers) {
+        this.courseName = courseName;
         this.Course_language = course_language;
         this.ECTS = ECTS;
         this.min_students = min_students;
@@ -51,12 +51,12 @@ public class Course {
         this.id = id;
     }
 
-    public String getCoursename() {
-        return coursename;
+    public String getCourseName() {
+        return courseName;
     }
 
     public void setCoursename(String coursename) {
-        this.coursename = coursename;
+        this.courseName = courseName;
     }
 
     public String getCourse_language() {

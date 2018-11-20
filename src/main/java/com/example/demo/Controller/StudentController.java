@@ -1,5 +1,6 @@
 package com.example.demo.Controller;
 
+import com.example.demo.Model.Course;
 import com.example.demo.Model.MyArrayList;
 import com.example.demo.Model.StuRepository;
 import com.example.demo.Model.Student;
@@ -30,12 +31,30 @@ public class StudentController {
         MyArrayList<Student> students = (MyArrayList<Student>) stuRepo.findAll();
         model.addAttribute("shadush",students);
         return new ResponseEntity(students, HttpStatus.OK);
+
     }
 
     @PostMapping("/search/courses")
     public ResponseEntity<MyArrayList> signUpForCourse(Student student){
         Student stud = stuRepo.save(student);
         return new ResponseEntity(stud, HttpStatus.OK);
+
     }
+
+    @GetMapping("/add/courses")
+    public String addCourse(Model model){
+        model.addAttribute("course", new Course());
+
+        return "save_course";
+    }
+
+
+   /* @PostMapping("/add/courses")
+    public String addCourseToStudent(Student student){
+        stuRepo.save(student);
+        return"redirect:/view/courses";
+    }
+    */
+
 
 }

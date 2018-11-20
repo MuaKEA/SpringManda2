@@ -9,7 +9,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light" id="nav_top">
-    <a class="navbar-brand" href="#">Navbar w/ text</a>
+    <a class="navbar-brand" href="#">Courses</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -48,18 +48,18 @@
     <tbody>
 
     <tr th:each="course:${List}">
-        <td th:text="${course.coursename}"></td>
-        <td th:text="${course.Course_language}"></td>
+        <td th:text="${course.courseName}"></td>
+        <td th:text="${course.course_language}"></td>
         <td th:text="${course.ECTS}"></td>
         <td th:text="${course.min_students}"></td>
         <td th:text="${course.max_students}"></td>
         <td th:text="${course.expectednumber}"></td>
-        <td th:text="${course.Prerequisites}"></td>
-        <td th:text="${course.Learning_outcome}"></td>
-        <td th:text="${course.Content}"></td>
-        <td th:text="${course.Learning_activities}"></td>
-        <td th:text="${course.Examform}"></td>
-        <td th:text="${course.Teachers}"></td>
+        <td th:text="${course.prerequisites}"></td>
+        <td th:text="${course.learning_outcome}"></td>
+        <td th:text="${course.content}"></td>
+        <td th:text="${course.learning_activities}"></td>
+        <td th:text="${course.examform}"></td>
+        <td th:text="${course.teachers}"></td>
         <td><button type="submit" class="carButton">send</button></td>
     </tr>
 
