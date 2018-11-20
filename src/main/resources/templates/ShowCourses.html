@@ -64,6 +64,8 @@
         <td th:text="${course.Teachers}"></td>
         <td>
             <a th:href="@{'/editcourse?id='+${course.getId()}}" class="knap">Rediger</a>
+            <a th:href="@{'/deletecourse?id='+${course.getId()}}" onclick="return confirm('Bekræft sletning')" class="knap">Slet</a>
+
         </td>
 
     </tr>

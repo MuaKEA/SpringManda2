@@ -26,7 +26,7 @@ public class Course {
 
     public Course(String courseName, String course_language, Integer ECTS, Integer min_students, Integer max_students, Integer expectednumber, String prerequisites, String learning_outcome, String content, String learning_activities, String examform, String teachers) {
         this.courseName = courseName;
-        Course_language = course_language;
+        this.Course_language = course_language;
         this.ECTS = ECTS;
         this.min_students = min_students;
         this.max_students = max_students;
@@ -63,7 +63,7 @@ public class Course {
     }
 
     public void setCourse_language(String course_language) {
-        Course_language = course_language;
+       this.Course_language = course_language;
     }
 
     public Integer getECTS() {
@@ -103,7 +103,7 @@ public class Course {
     }
 
     public void setPrerequisites(String prerequisites) {
-        Prerequisites = prerequisites;
+        this.Prerequisites = prerequisites;
     }
 
     public String getLearning_outcome() {
@@ -111,7 +111,7 @@ public class Course {
     }
 
     public void setLearning_outcome(String learning_outcome) {
-        Learning_outcome = learning_outcome;
+        this.Learning_outcome = learning_outcome;
     }
 
     public String getContent() {
@@ -119,7 +119,7 @@ public class Course {
     }
 
     public void setContent(String content) {
-        Content = content;
+       this.Content = content;
     }
 
     public String getLearning_activities() {
@@ -127,7 +127,7 @@ public class Course {
     }
 
     public void setLearning_activities(String learning_activities) {
-        Learning_activities = learning_activities;
+        this.Learning_activities = learning_activities;
     }
 
     public String getExamform() {
@@ -135,7 +135,7 @@ public class Course {
     }
 
     public void setExamform(String examform) {
-        Examform = examform;
+        this.Examform = examform;
     }
 
     public String getTeachers() {
@@ -143,6 +143,6 @@ public class Course {
     }
 
     public void setTeachers(String teachers) {
-        Teachers = teachers;
+        this.Teachers = teachers;
     }
 }

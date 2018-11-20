@@ -41,7 +41,7 @@ public class TeacherController {
     }
 
 
-    @DeleteMapping("/Teacher/deletecourse")
+    @GetMapping("/deletecourse")
     public String delete(@RequestParam(value = "ID", defaultValue = "1") Long id){
         courseRepository.deleteById(id);
 

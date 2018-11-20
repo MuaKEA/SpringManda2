@@ -11,7 +11,7 @@
 
     <h2>edit course</h2>
 
-    <form class="genericForm" method="put" th:action="@{/editcourse}">
+    <form class="genericForm" method="post" th:action="@{/editcourse}">
         <div>
             <label>course name: </label>
             <input type="text" th:field="${course.courseName}"/>
@@ -31,6 +31,10 @@
         <div>
             <label>expected number</label>
             <input type="text" th:field="${course.expectednumber}"/>
+        </div>
+        <div>
+            <label>ETC</label>
+            <input type="text" th:field="${course.ECTS}"/>
         </div>
         <div>
             <label>Prerequisites</label>
