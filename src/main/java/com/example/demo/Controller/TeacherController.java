@@ -16,7 +16,7 @@ public class TeacherController {
 
 
 
-    @GetMapping("/add/courses")
+    @GetMapping("createcourse")
     public String Createcourse(Model model){
         model.addAttribute("course",new Course());
 
@@ -25,14 +25,14 @@ public class TeacherController {
         return "save_course";
     }
 
-    @PostMapping("/add/courses")
+    @PostMapping("/createcourse")
     public String Createcourse(Course course){
         courseRepository.save(course);
         return "redirect:/ShowCourses";
     }
 
 
-    @GetMapping("/view/courses")
+    @GetMapping("/ShowCourses")
     public String showCourse(Model model){
         model.addAttribute("List",courseRepository.findAll());
 
@@ -48,14 +48,14 @@ public class TeacherController {
         return "redirect:/ShowCourses";
     }
 
-    @GetMapping("/Teacher/editcourse")
+    @GetMapping("/editcourse")
     public String editcourse(@RequestParam(value = "ID", defaultValue = "1") Long id, Model model){
 
         model.addAttribute("course",courseRepository.findById(id));
         return "editCourses";
     }
 
-    @PutMapping("/Teacher/editcourse")
+    @GetMapping("/editcourse")
     public String editcourse(Course course){
         courseRepository.save(course);
 

@@ -63,7 +63,7 @@
         <td th:text="${course.Examform}"></td>
         <td th:text="${course.Teachers}"></td>
         <td>
-            <a th:href="@{'/redigerMedarbejdere?id='+${course.getId()}}" class="knap">Rediger</a>
+            <a th:href="@{'/editcourse?id='+${course.getId()}}" class="knap">Rediger</a>
         </td>
 
     </tr>
