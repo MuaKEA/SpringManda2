@@ -5,6 +5,7 @@ import com.example.demo.Model.CourseRepository;
 import com.example.demo.Model.StuRepository;
 import com.example.demo.Model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 
-@RestController
+@Controller
 public class StudentController {
 
     @Autowired
@@ -29,11 +30,11 @@ public class StudentController {
 
     @PostMapping("/add/createStudent")
     public String createstudent(Student student){
+
         stuRepo.save(student);
         return "redirect:/chooseCourse";
 
     }
-
 
 
 
