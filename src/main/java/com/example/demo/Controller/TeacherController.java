@@ -62,6 +62,15 @@ public class TeacherController {
 
         return "redirect:/ShowCourses";
     }
+
+    @GetMapping("/search/courses")
+    public String searchCourse(Model model){
+        model.addAttribute("List",courseRepository.findAll());
+        return "redirect:/";
+    }
+
+
+
 }
 
 
