@@ -18,10 +18,10 @@ public class AdministrationController {
 
     @GetMapping("/getStudentList/{id}")
     public String showStudentList(@PathVariable Long id, Model model){
-        //Student john = new Student("John", "Pedersen", "Johnvej", 2770, 23457556L, 1L);
-        //Student erik = new Student("Erik", "Pedersen", "Erikvej", 2770, 23564556L, 2L);
-        //studentRepo.save(john);
-        //studentRepo.save(erik);
+        Student john = new Student("John", "Pedersen", "Johnvej", 2770, "Kastrup", 23457556L, "John@hotmail.com", 1L);
+        Student erik = new Student("Erik", "Pedersen", "Erikvej", 2770, "Kastrup", 23564556L, "Erik@hotmail.com",2L);
+        studentRepo.save(john);
+        studentRepo.save(erik);
         List<Student> list = studentRepo.findByCourseId(id);
         model.addAttribute("studentView", list);
         //System.out.println(list.size());
