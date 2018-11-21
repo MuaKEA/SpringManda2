@@ -10,19 +10,21 @@ public class Student extends Person{
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Long id;
-    private String adress;
+    private String address;
     private int postcode;
     private String city;
-    private Long mobil;
     private String email;
+    private Long tlf;
+    private Long courseId;
 
 
-    public Student(String firstName, String lastName, String adress, int postcode,String city, Long mobil, String email ) {
+    public Student(String firstName, String lastName, String address, int postcode, String city, Long tlf, String email, Long courseId) {
         super(firstName, lastName);
-        this.adress = adress;
+        this.address = address;
         this.postcode = postcode;
+        this.tlf = tlf;
+        this.courseId = courseId;
         this.city=city;
-        this.mobil = mobil;
         this.email = email;
     }
 
@@ -38,12 +40,12 @@ public class Student extends Person{
         this.id = id;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public int getPostcode() {
@@ -54,27 +56,19 @@ public class Student extends Person{
         this.postcode = postcode;
     }
 
-    public Long getMobil() {
-        return mobil;
+    public Long getTlf() {
+        return tlf;
     }
 
-    public void setMobil(Long mobil) {
-        this.mobil = mobil;
+    public void setTlf(Long tlf) {
+        this.tlf = tlf;
     }
 
-    public String getEmail() {
-        return email;
+    public Long getCourseId() {
+        return courseId;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
+    public void setCourseIdd(int studentid) {
+        this.courseId = courseId;
     }
 }
