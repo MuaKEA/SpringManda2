@@ -55,7 +55,7 @@ public class TeacherController {
         return "editCourses";
     }
 
-    @PostMapping("/editcourse")
+    @PutMapping("/editcourse")
     public String editcourse(Course course){
         courseRepository.save(course);
 

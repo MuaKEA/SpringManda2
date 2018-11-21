@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -8,7 +8,6 @@
         }
 
         #myInput {
-            background-image: url('/css/searchicon.png');
             background-position: 10px 12px;
             background-repeat: no-repeat;
             width: 100%;
@@ -47,15 +46,22 @@
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 
 <ul id="myUL">
-    <li><a href="#">Adele</a></li>
-    <li><a href="#">Agnes</a></li>
 
-    <li><a href="#">Billy</a></li>
-    <li><a href="#">Bob</a></li>
+    <tr th:each="course:${List}">
+        <td th:text="${course.courseName}"></td>
+        <td th:text="${course.Course_language}"></td>
+        <td th:text="${course.ECTS}"></td>
+        <td th:text="${course.Prerequisites}"></td>
+        <td th:text="${course.Learning_outcome}"></td>
+        <td th:text="${course.Content}"></td>
+        <td th:text="${course.Learning_activities}"></td>
+        <td th:text="${course.Examform}"></td>
+        <td th:text="${course.Teachers}"></td>
+        <td>
 
-    <li><a href="#">Calvin</a></li>
-    <li><a href="#">Christina</a></li>
-    <li><a href="#">Cindy</a></li>
+        </td>
+
+    </tr>
 </ul>
 
 <script>
