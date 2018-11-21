@@ -71,6 +71,8 @@ public class TeacherController {
     public String searchCourse(Model model){
         model.addAttribute("List",courseRepository.findAll());
         return "redirect:/chooseCourse";
+
+
     }
 
 
