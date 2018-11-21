@@ -1,5 +1,6 @@
 package com.example.demo.Controller;
 
+import com.example.demo.Model.Course;
 import com.example.demo.Model.StuRepository;
 import com.example.demo.Model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +29,16 @@ public class StudentController {
     @PostMapping("/add/createStudent")
     public String createstudent(Student student){
         stuRepo.save(student);
-        return "reedict:/joincourse";
+        return "redirect:/joincourse";
 
     }
 
+    @GetMapping("/search/courses")
+    public String searchCourse(Model model){
+        model.addAttribute("course", new Course());
+        return "redirect:/";
+    }
 
+    PostMapping("")
 
 }
