@@ -24,7 +24,7 @@ public class Student extends Person{
         this.postcode = postcode;
         this.tlf = tlf;
         this.courseId = courseId;
-        this.city=city;
+        this.city = city;
         this.email = email;
     }
 
@@ -56,6 +56,22 @@ public class Student extends Person{
         this.postcode = postcode;
     }
 
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public Long getTlf() {
         return tlf;
     }
@@ -68,7 +84,7 @@ public class Student extends Person{
         return courseId;
     }
 
-    public void setCourseIdd(int studentid) {
+    public void setCourseId(Long courseId) {
         this.courseId = courseId;
     }
 }
