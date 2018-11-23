@@ -1,9 +1,6 @@
 package com.example.demo.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Student extends Person{
@@ -15,15 +12,16 @@ public class Student extends Person{
     private String city;
     private String email;
     private Long tlf;
-    private Long courseId;
+
+    @OneToMany
+    private Course course;
 
 
-    public Student(String firstName, String lastName, String address, int postcode, String city, Long tlf, String email, Long courseId) {
+    public Student(String firstName, String lastName, String address, int postcode, String city, Long tlf, String email) {
         super(firstName, lastName);
         this.address = address;
         this.postcode = postcode;
         this.tlf = tlf;
-        this.courseId = courseId;
         this.city = city;
         this.email = email;
     }
@@ -80,11 +78,11 @@ public class Student extends Person{
         this.tlf = tlf;
     }
 
-    public Long getCourseId() {
-        return courseId;
+    public Course getCourse() {
+        return course;
     }
 
-    public void setCourseId(Long courseId) {
-        this.courseId = courseId;
+    public void setCourse(Course course) {
+        this.course = course;
     }
 }
