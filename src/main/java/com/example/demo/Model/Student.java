@@ -13,7 +13,8 @@ public class Student extends Person{
     private String email;
     private Long tlf;
 
-    @OneToMany
+    @OneToOne
+    @JoinColumn(name = "courseId")
     private Course course;
 
 

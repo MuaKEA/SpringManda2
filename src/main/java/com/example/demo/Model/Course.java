@@ -11,35 +11,35 @@ public class Course {
     @Id
     private Long id;
     private String courseName;
-    private String Course_language;
-    private Integer ECTS;
-    private Integer min_students;
-    private Integer max_students;
-    private Integer expectednumber;
-    private String Prerequisites;
-    private String Learning_outcome;
-    private String Content;
-    private String Learning_activities;
-    private String Examform;
-    private String Teachers;
+    private String courseLanguage;
+    private Integer ects;
+    private Integer minStudents;
+    private Integer maxStudents;
+    private Integer expectedNumber;
+    private String preRequisites;
+    private String learningOutcome;
+    private String content;
+    private String learningActivities;
+    private String examForm;
+    private String teachers;
 
-
-    public Course(String courseName, String course_language, Integer ECTS, Integer min_students, Integer max_students, Integer expectednumber, String prerequisites, String learning_outcome, String content, String learning_activities, String examform, String teachers) {
-        this.courseName = courseName;
-        this.Course_language = course_language;
-        this.ECTS = ECTS;
-        this.min_students = min_students;
-        this.max_students = max_students;
-        this.expectednumber = expectednumber;
-        this.Prerequisites = prerequisites;
-        this.Learning_outcome = learning_outcome;
-        this.Content = content;
-        this.Learning_activities = learning_activities;
-        this.Examform = examform;
-        this.Teachers = teachers;
-    }
 
     public Course() {
+    }
+
+    public Course(String courseName, String courseLanguage, Integer ects, Integer minStudents, Integer maxStudents, Integer expectedNumber, String preRequisites, String learningOutcome, String content, String learningActivities, String examForm, String teachers) {
+        this.courseName = courseName;
+        this.courseLanguage = courseLanguage;
+        this.ects = ects;
+        this.minStudents = minStudents;
+        this.maxStudents = maxStudents;
+        this.expectedNumber = expectedNumber;
+        this.preRequisites = preRequisites;
+        this.learningOutcome = learningOutcome;
+        this.content = content;
+        this.learningActivities = learningActivities;
+        this.examForm = examForm;
+        this.teachers = teachers;
     }
 
     public Long getId() {
@@ -58,91 +58,91 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public String getCourse_language() {
-        return Course_language;
+    public String getCourseLanguage() {
+        return courseLanguage;
     }
 
-    public void setCourse_language(String course_language) {
-       this.Course_language = course_language;
+    public void setCourseLanguage(String courseLanguage) {
+        this.courseLanguage = courseLanguage;
     }
 
-    public Integer getECTS() {
-        return ECTS;
+    public Integer getEcts() {
+        return ects;
     }
 
-    public void setECTS(Integer ECTS) {
-        this.ECTS = ECTS;
+    public void setEcts(Integer ects) {
+        this.ects = ects;
     }
 
-    public Integer getMin_students() {
-        return min_students;
+    public Integer getMinStudents() {
+        return minStudents;
     }
 
-    public void setMin_students(Integer min_students) {
-        this.min_students = min_students;
+    public void setMinStudents(Integer minStudents) {
+        this.minStudents = minStudents;
     }
 
-    public Integer getMax_students() {
-        return max_students;
+    public Integer getMaxStudents() {
+        return maxStudents;
     }
 
-    public void setMax_students(Integer max_students) {
-        this.max_students = max_students;
+    public void setMaxStudents(Integer maxStudents) {
+        this.maxStudents = maxStudents;
     }
 
-    public Integer getExpectednumber() {
-        return expectednumber;
+    public Integer getExpectedNumber() {
+        return expectedNumber;
     }
 
-    public void setExpectednumber(Integer expectednumber) {
-        this.expectednumber = expectednumber;
+    public void setExpectedNumber(Integer expectedNumber) {
+        this.expectedNumber = expectedNumber;
     }
 
-    public String getPrerequisites() {
-        return Prerequisites;
+    public String getPreRequisites() {
+        return preRequisites;
     }
 
-    public void setPrerequisites(String prerequisites) {
-        this.Prerequisites = prerequisites;
+    public void setPreRequisites(String preRequisites) {
+        this.preRequisites = preRequisites;
     }
 
-    public String getLearning_outcome() {
-        return Learning_outcome;
+    public String getLearningOutcome() {
+        return learningOutcome;
     }
 
-    public void setLearning_outcome(String learning_outcome) {
-        this.Learning_outcome = learning_outcome;
+    public void setLearningOutcome(String learningOutcome) {
+        this.learningOutcome = learningOutcome;
     }
 
     public String getContent() {
-        return Content;
+        return content;
     }
 
     public void setContent(String content) {
-       this.Content = content;
+        this.content = content;
     }
 
-    public String getLearning_activities() {
-        return Learning_activities;
+    public String getLearningActivities() {
+        return learningActivities;
     }
 
-    public void setLearning_activities(String learning_activities) {
-        this.Learning_activities = learning_activities;
+    public void setLearningActivities(String learningActivities) {
+        this.learningActivities = learningActivities;
     }
 
-    public String getExamform() {
-        return Examform;
+    public String getExamForm() {
+        return examForm;
     }
 
-    public void setExamform(String examform) {
-        this.Examform = examform;
+    public void setExamForm(String examForm) {
+        this.examForm = examForm;
     }
 
     public String getTeachers() {
-        return Teachers;
+        return teachers;
     }
 
     public void setTeachers(String teachers) {
-        this.Teachers = teachers;
+        this.teachers = teachers;
     }
 }
