@@ -13,11 +13,11 @@
         <h1 class="display-4">Students in "Course name"</h1>
 
         <!--Choose course id-->
-        <select th:each="course:${courseList}">
+        <select th:each="course:${courseView}">
         <!--<select th:each="" onchange="location = this.options[this.selectedIndex].value;">-->
             <option>Please select</option>
-            <option th:value="${course.courseName}"></option>
-            <option th:value="${course.id}" hidden></option>
+            <option th:value="${course.id}"></option>
+            <!--<option th:value="${course.id}" hidden></option>-->
         </select>
 
         <table class="table table-striped">
