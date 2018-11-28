@@ -1,6 +1,8 @@
 package com.example.demo.Model;
 
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Student extends Person{
@@ -13,18 +15,19 @@ public class Student extends Person{
     private String email;
     private Long tlf;
 
-    @OneToOne
-    @JoinColumn(name = "courseId")
-    private Course course;
+
+    @OneToMany()
+    private Set<Course> course;
 
 
-    public Student(String firstName, String lastName, String address, int postcode, String city, Long tlf, String email) {
+    public Student(String firstName, String lastName, String address, int postcode, String city, Long tlf, String email,Set<Course> course) {
         super(firstName, lastName);
         this.address = address;
         this.postcode = postcode;
         this.tlf = tlf;
         this.city = city;
         this.email = email;
+        this.course=course;
     }
 
     public Student(){
@@ -79,11 +82,11 @@ public class Student extends Person{
         this.tlf = tlf;
     }
 
-    public Course getCourse() {
+    public Set<Course> getCourse() {
         return course;
     }
 
-    public void setCourse(Course course) {
+    public void setCourse(Set<Course> course) {
         this.course = course;
     }
 }

@@ -27,11 +27,13 @@ public class TeacherController {
 
     @PostMapping("/createcourse")
     public String Createcourse(Course course){
-        courseRepository.save(course);
+
         for (int i = 0; i <10 ; i++) {
-            Course c= new Course("name","english",30,20,40,30,"none","none","math&shadush","shafush","oral&report","alex");
-            courseRepository.save(c);
+
+
+            courseRepository.save(course);
         }
+
         return "redirect:/ShowCourses";
     }
 
@@ -67,14 +69,12 @@ public class TeacherController {
         return "redirect:/ShowCourses";
     }
 
-    @GetMapping("/search/courses")
+    @GetMapping("/chooseCourse")
     public String searchCourse(Model model){
         model.addAttribute("List",courseRepository.findAll());
-        return "redirect:/chooseCourse";
-
+        return "chooseCourse";
 
     }
-
 
 
 }

@@ -1,9 +1,7 @@
 package com.example.demo.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Course {
@@ -22,6 +20,8 @@ public class Course {
     private String learningActivities;
     private String examForm;
     private String teachers;
+
+
 
 
     public Course() {
@@ -145,4 +145,6 @@ public class Course {
     public void setTeachers(String teachers) {
         this.teachers = teachers;
     }
+
+
 }
