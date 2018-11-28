@@ -32,7 +32,7 @@ public class StudentController {
     public String createstudent(Student student){
 
         stuRepo.save(student);
-        return "redirect:/search/courses";
+        return "redirect:/chooseCourse";
 
     }
 
