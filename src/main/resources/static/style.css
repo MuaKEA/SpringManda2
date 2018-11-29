@@ -34,3 +34,36 @@
 #myUL li a:hover:not(.header) {
     background-color: #eee;
 }
+
+.nav-item a:hover {
+    background-color: #13567f !important;
+    cursor: pointer;
+}
+
+.nav-bg-color {
+    background-color: #134370;
+}
+
+.navbar-fix {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    height: 55px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+
+.home {
+    background-color: #24a2b6;
+}
+
+.test {
+    background-color: palegreen;
+}

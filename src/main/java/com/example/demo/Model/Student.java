@@ -40,11 +40,11 @@ public class Student extends Person{
         this.id = id;
     }
 
-    public String getAddress() {
+    public String getaddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setaddress(String address) {
         this.address = address;
     }
 

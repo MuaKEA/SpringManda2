@@ -60,6 +60,10 @@ public class AdministrationController {
         return "approvalList";
     }
 
+    @GetMapping("/adminMenu")
+    public String adminMenu(){
+        return "adminMenu";
+    }
 
 
 
