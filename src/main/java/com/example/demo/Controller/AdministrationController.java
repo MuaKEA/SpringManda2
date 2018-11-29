@@ -50,11 +50,7 @@ public class AdministrationController {
         //studentRepo.save(erik);
         //id = 0L;
         //model.addAttribute("id", id);
-        List<Course> courseList = courseRepo.findAll();
-        model.addAttribute("courseView", courseList);
-        List<Student> studentList = studentRepo.findByCourseId(id);
-        model.addAttribute("studentView", studentList);
-        //System.out.println(list.size());
+
         return "studentList";
     }
 

@@ -16,18 +16,16 @@ public class Student extends Person{
     private Long tlf;
 
 
-    @OneToMany()
-    private Set<Course> course;
 
 
-    public Student(String firstName, String lastName, String address, int postcode, String city, Long tlf, String email,Set<Course> course) {
+
+    public Student(String firstName, String lastName, String address, int postcode, String city, Long tlf, String email) {
         super(firstName, lastName);
         this.address = address;
         this.postcode = postcode;
         this.tlf = tlf;
         this.city = city;
         this.email = email;
-        this.course=course;
     }
 
     public Student(){
@@ -82,11 +80,5 @@ public class Student extends Person{
         this.tlf = tlf;
     }
 
-    public Set<Course> getCourse() {
-        return course;
-    }
 
-    public void setCourse(Set<Course> course) {
-        this.course = course;
-    }
 }

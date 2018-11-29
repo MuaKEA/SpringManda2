@@ -58,10 +58,11 @@
     <th style="width:40%;">vælg</th>
 
 </tr>
-<table id="myTable" th:each="course:${List}">
+<table id="myTable" th:each="course:${courseList}">
 
 
     <tr>
+        <td th:text="${course.id}" hidden></td>
         <td th:text="${course.courseName}"></td>
         <td th:text="${course.courseLanguage}"></td>
         <td th:text="${course.ects}"></td>
@@ -78,7 +79,7 @@
 
         </td>
     </tr>
-    <input type="submit" value="Send" onclick=/>
+    <input type="submit" value="Send" />
 
 </table>
 
