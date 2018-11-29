@@ -32,32 +32,33 @@ public class StudentController {
     public String createstudent(Student student) {
         stuRepo.save(student);
         Id=student.getId();
-
-        return "redirect:/chooseCourse";
+        return "redirect:/chosecourse";
 
     }
 
-    @GetMapping("chosecourse")
+    @GetMapping("/chosecourse")
     public String choosecourse(Model model) {
       model.addAttribute("courseList", courseRepository.findAll());
         return "chooseCourse";
     }
 
-    @PostMapping("chosecourse")
-    public String choosecourse(@ModelAttribute Course course) {
+    @PostMapping("/chosecourse")
+    public String choosecourse(@RequestParam(value = "courseids[]", required = false) Long[] courseList) {
+        for (int i = 0; i <courseList.length ; i++) {
+            waitinglistRepo.save(new waitingList(Id,courseList[i]));
+            System.out.println(courseList[i]);
+        }
 
-        waitinglistRepo.save(new waitingList(Id,course.getId()));
+
         return "redirect:/conformations";
     }
 
 @GetMapping("/conformations")
-public String conformations(Model model,@RequestParam(defaultValue = "1") Long[] courseList){
-    for (int i = 0; i <courseList.length ; i++) {
-        waitinglistRepo.save(new waitingList(Id,courseList[i]));
-    }
-        model.addAttribute("conformation",waitinglistRepo.findById(Id));
-        model.addAttribute("signedCourses",waitinglistRepo);
+public String conformations(Model model){
 
+    for (waitingList idlookup:waitinglistRepo.findAll()) {
+        
+    }
 
         return "conformations";
     }

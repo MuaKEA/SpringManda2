@@ -58,11 +58,11 @@
     <th style="width:40%;">vælg</th>
 
 </tr>
-<table id="myTable" th:each="course:${courseList}">
+<form action="/chosecourse" method="Post">
 
+<table id="myTable">
 
-    <tr>
-        <td th:text="${course.id}" id="ids" hidden></td>
+    <tr th:each="course: ${courseList}">>
         <td th:text="${course.courseName}"></td>
         <td th:text="${course.courseLanguage}"></td>
         <td th:text="${course.ects}"></td>
@@ -73,15 +73,14 @@
         <td th:text="${course.examForm}"></td>
         <td th:text="${course.teachers}"></td>
         <td>
-            <label>
-                <input type="checkbox" name="course[]" th:value="${course.id}"/>
-            </label> </input>
-
+            <input type="checkbox" name="courseids[]" th:value="${course.id}" th:checked="${#lists.contains(courseList, course.id)}"/>
         </td>
     </tr>
-    <a th:href="@{'/conformations?id='+${course.getId()}}" class="knap">gem</a>
-    <input type="checkbox" name="myParam[]" value="id" />
 </table>
+    <input type="submit" value="Submit">
+
+</form>
+
 
 <script>
     function myFunction() {

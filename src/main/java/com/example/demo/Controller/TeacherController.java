@@ -23,7 +23,7 @@ public class TeacherController {
 
 
 
-    @GetMapping("createcourse")
+    @GetMapping("/createcourse")
     public String Createcourse(Model model){
         model.addAttribute("course",new Course());
 
@@ -32,10 +32,11 @@ public class TeacherController {
 
     @PostMapping("/createcourse")
     public String Createcourse(Course course){
-
         for (int i = 0; i <10 ; i++) {
-            courseRepository.save(course);
+            Course c= new Course("name","english",30,20,40,30,"none","none","math&shadush","shafush","oral&report","alex");
+            courseRepository.save(c);
         }
+        courseRepository.save(course);
 
         return "redirect:/ShowCourses";
     }
