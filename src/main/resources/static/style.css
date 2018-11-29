@@ -3,6 +3,23 @@
     box-sizing: border-box;
 }
 
+html body {
+    /* The image used */
+    background-image: url("MandatoryB.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: 0 55px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+nav {
+    overflow: auto;
+}
+
 #myInput {
     background-image: url('/css/searchicon.png');
     background-position: 10px 12px;
@@ -35,11 +52,6 @@
     background-color: #eee;
 }
 
-.nav-item a:hover {
-    background-color: #13567f !important;
-    cursor: pointer;
-}
-
 .nav-bg-color {
     background-color: #134370;
 }
@@ -57,13 +69,51 @@
     height: 55px;
     padding-left: 15px;
     padding-right: 15px;
+}
 
+.nav-link {
+    text-transform: uppercase !important;
+}
+
+#home {
+    width: 55px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .home {
-    background-color: #24a2b6;
+    background-color: white;
 }
 
-.test {
-    background-color: palegreen;
+.fa-home {
+    color: #24a2b6;
+}
+
+.link:hover {
+    background-color: white !important;
+    color: #13567f !important;
+
+}
+
+.navbar-nav li a {
+    color: white !important;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#logout {
+    color: black !important;
+}
+
+#logout:hover {
+    background-color: black !important;
+    color: #c24442 !important;
+}
+
+.btn-logout {
+    background-color: #e7514a;
+}
+
+.jumbotron {
+    background: rgba(90, 90, 90, 0.50);
 }
