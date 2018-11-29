@@ -50,12 +50,12 @@ public class StudentController {
         return "redirect:/conformations";
     }
 
-@GetMapping("conformations")
+@GetMapping("/conformations")
 public String conformations(Model model,@RequestParam(defaultValue = "1") Long[] courseList){
     for (int i = 0; i <courseList.length ; i++) {
         waitinglistRepo.save(new waitingList(Id,courseList[i]));
     }
-        model.addAttribute("conformation",waitinglistRepo.waitingstudent(Id));
+        model.addAttribute("conformation",waitinglistRepo.findById(Id));
         model.addAttribute("signedCourses",waitinglistRepo);
 
 

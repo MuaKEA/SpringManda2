@@ -62,7 +62,7 @@
 
 
     <tr>
-        <td th:text="${course.id}" hidden></td>
+        <td th:text="${course.id}" id="ids" hidden></td>
         <td th:text="${course.courseName}"></td>
         <td th:text="${course.courseLanguage}"></td>
         <td th:text="${course.ects}"></td>
@@ -74,13 +74,13 @@
         <td th:text="${course.teachers}"></td>
         <td>
             <label>
-                <input type="checkbox" name="id" value="courses" id= checked>
+                <input type="checkbox" name="course[]" th:value="${course.id}"/>
             </label> </input>
 
         </td>
     </tr>
-    <input type="submit" value="Send" />
-
+    <a th:href="@{'/conformations?id='+${course.getId()}}" class="knap">gem</a>
+    <input type="checkbox" name="myParam[]" value="id" />
 </table>
 
 <script>
