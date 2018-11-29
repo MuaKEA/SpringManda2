@@ -1,9 +1,6 @@
 package com.example.demo.Controller;
 
-import com.example.demo.Model.Course;
-import com.example.demo.Model.CourseRepository;
-import com.example.demo.Model.StuRepository;
-import com.example.demo.Model.Student;
+import com.example.demo.Model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -19,7 +17,8 @@ public class AdministrationController {
     @Autowired
     public StuRepository studentRepo;
     public CourseRepository courseRepo;
-
+    @Autowired
+    public WaitinglistRepo waitinglistRepo;
     /*@GetMapping("/chooseCourse")
     public String chooseCourse(){
         return "chooseCourse";
@@ -54,17 +53,27 @@ public class AdministrationController {
         return "studentList";
     }
 
-    @GetMapping("/getStudentApprovalList")
-    public String studentApproval(){
 
-        return "approvalList";
-    }
 
     @GetMapping("/adminMenu")
     public String adminMenu(){
         return "adminMenu";
     }
 
+    @GetMapping("/getStudentApprovalList")
+    public String studentApproval(Model model){
+
+
+
+
+
+                     model.addAttribute("coursesList", waitinglistRepo.findAll());
+
+
+
+
+             return "approvalList";
+    }
 
 
 
