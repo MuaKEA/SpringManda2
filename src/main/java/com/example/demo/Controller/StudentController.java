@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -70,7 +72,13 @@ public class StudentController {
 
     @GetMapping("/conformations")
     public String conformations(Model model){
-      List<WaitingList> waitingLists=waitinglistRepo.findAllById(Id);
+        ArrayList<Course> courseLinkedList= new ArrayList<>();
+
+        for (WaitingList w : waitinglistRepo.findAllByStudentId(Id)) {
+               courseLinkedList.add(w.getCourse());
+        }
+        model.addAttribute("couseList",courseLinkedList);
+        System.out.println(stuRepo.findById(Id));
 
        return "conformations";
     }
