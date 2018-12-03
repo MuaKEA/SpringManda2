@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -53,7 +54,7 @@ public class StudentController {
     }
 
     @PostMapping("chosecourse")
-    public String choosecourse(@ModelAttribute WaitingList waitingList,@RequestParam() Long[] courseList) {
+    public String choosecourse(@ModelAttribute WaitingList waitingList,@RequestParam(value = "courseids[]") Long[] courseList) {
         for (int i = 0; i <courseList.length ; i++) {
         WaitingList w=new WaitingList();
         Student student= stuRepo.findById(Id).get();
@@ -69,11 +70,9 @@ public class StudentController {
 
     @GetMapping("/conformations")
     public String conformations(Model model){
+      List<WaitingList> waitingLists=waitinglistRepo.findAllById(Id);
 
-
-
-
-        return "conformations";
+       return "conformations";
     }
 
 //Post mangler
