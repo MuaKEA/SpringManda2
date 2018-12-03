@@ -26,6 +26,11 @@ public class StudentController {
    @Autowired
    private WaitinglistRepo waitinglistRepo;
 
+    @GetMapping("/studentMenu")
+    public String adminMenu(){
+        return "studentMenu";
+    }
+
     @GetMapping("/add/createStudent")
     public String createstudent(Model model) {
         model.addAttribute("student", new Student());
@@ -37,11 +42,11 @@ public class StudentController {
     public String createstudent(Student student) {
         stuRepo.save(student);
         Id=student.getId();
-        return "redirect:/chosecourse";
+        return "redirect:/chooseCourse";
 
     }
 
-    @GetMapping("chosecourse")
+    @GetMapping("chooseCourse")
     public String choosecourse(Model model) {
         model.addAttribute("courseList", courseRepository.findAll());
         return "chooseCourse";

@@ -18,6 +18,10 @@ public class TeacherController {
     @Autowired
     public TeacherRepo teacherRepo;
 
+    @GetMapping("/teacherMenu")
+    public String adminMenu(){
+        return "teacherMenu";
+    }
 
     @GetMapping("/createcourse")
     public String Createcourse(Model model){
