@@ -49,19 +49,13 @@
 
 
 
-    <tr th:each="course:${studentList}">
-        <td th:text="${course.courseName}"></td>
-        <td th:text="${course.courseLanguage}"></td>
-        <td th:text="${course.ects}"></td>
-        <td th:text="${course.minStudents}"></td>
-        <td th:text="${course.maxStudents}"></td>
-        <td th:text="${course.expectedNumber}"></td>
-        <td th:text="${course.preRequisites}"></td>
-        <td th:text="${course.learningOutcome}"></td>
-        <td th:text="${course.content}"></td>
-        <td th:text="${course.learningActivities}"></td>
-        <td th:text="${course.examForm}"></td>
-        <td th:text="${course.teachers}"></td>
+    <tr th:each="waitinglist:${waitingList}">
+        <td th:text="${waitinglist.courseName}"></td>
+        <td th:text="${waitinglist.courseLanguage}"></td>
+        <td th:text="${waitinglist.ects}"></td>
+        <td th:text="${waitinglist.minStudents}"></td>
+        <td th:text="${waitinglist.maxStudents}"></td>
+
 
         <td>
             <a th:href="@{'/editcourse?id='+${course.getId()}}" class="knap">Rediger</a>

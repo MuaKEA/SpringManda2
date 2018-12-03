@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Start Page</title>
@@ -61,10 +61,19 @@
         <label>Examform</label>
         <input type="text" th:field="${course.examForm}"required="true"/>
     </div>
-    <div>
-        <label>Teachers</label>
-        <input type="text" th:field="${course.teachers}"required="true"/>
     </div>
+    <label >Vælg lærer</label>
+    <select th:field="${course.teachers}" >
+    <option
+    th:each="teacher : ${teacherList}"
+    th:value="${teacher.id}"
+    th:text="${teacher.firstName}"
+    ></option>
+    </select>
+    </div>
+    <br>
+
+
     <input type="submit" value="Send"/>
 
 </form>

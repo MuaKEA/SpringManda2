@@ -1,6 +1,9 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Model.*;
+import com.example.demo.Repos.CourseRepository;
+import com.example.demo.Repos.StuRepository;
+import com.example.demo.Repos.WaitinglistRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,32 +39,28 @@ public class StudentController {
 
     }
 
-    @GetMapping("/chosecourse")
+    @GetMapping("chosecourse")
     public String choosecourse(Model model) {
-      model.addAttribute("courseList", courseRepository.findAll());
+        model.addAttribute("courseList", courseRepository.findAll());
         return "chooseCourse";
     }
 
-    @PostMapping("/chosecourse")
-    public String choosecourse(@RequestParam(value = "courseids[]", required = false) Long[] courseList) {
-        for (int i = 0; i <courseList.length ; i++) {
-            waitinglistRepo.save(new waitingList(Id,courseList[i]));
-            System.out.println(courseList[i]);
-        }
-
+    @PostMapping("chosecourse")
+    public String choosecourse(@ModelAttribute WaitingList waitingList,@RequestParam(defaultValue = "1") Long[] courseList) {
 
         return "redirect:/conformations";
     }
 
-@GetMapping("/conformations")
-public String conformations(Model model){
+    @GetMapping("/conformations")
+    public String conformations(Model model){
 
-    for (waitingList idlookup:waitinglistRepo.findAll()) {
-        
-    }
+
+
 
         return "conformations";
     }
+
+//Post mangler
 
 
 

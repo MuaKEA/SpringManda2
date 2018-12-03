@@ -1,11 +1,10 @@
-package com.example.demo.Model;
+package com.example.demo.Repos;
 
+import com.example.demo.Model.Course;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
 public interface CourseRepository extends CrudRepository<Course,Long> {
     List<Course> findAll();
-
-
 }

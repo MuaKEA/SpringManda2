@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Start Page</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/layout.css">
+</head>
+
+
+<body>
+<form class="form-signin"  method="post" action="/createTeacher" >
+    <div>
+        <label>name: </label>
+        <input type="text" th:field="${teacher.firstName}" required="true"/>
+    </div>
+    <div>
+        <label> lastname</label>
+        <input type="text" th:field="${teacher.lastName}" required="true"/>
+    </div>
+    <div>
+
+        <label>address</label>
+        <input type="text" th:field="${teacher.address}" required="true"/>
+    </div>
+    <div>
+        <label> postcode</label>
+        <input type="text" th:field="${teacher.postcode}" required="true"/>
+    </div>
+    <div>
+        <label> city</label>
+        <input type="text" th:field="${teacher.city}" required="true"/>
+    </div>
+    <div>
+        <label> mobil</label>
+        <input type="text" th:field="${teacher.tlf}" required="true"/>
+    </div>
+    <div>
+        <label>email</label>
+        <input type="text" th:field="${teacher.email}"required="true"/>
+    </div>
+
+
+    <input type="submit" value="Send"/>
+
+</form>
+</body>

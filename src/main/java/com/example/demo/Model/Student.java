@@ -2,8 +2,6 @@ package com.example.demo.Model;
 
 
 import javax.persistence.*;
-import java.util.Set;
-
 @Entity
 public class Student extends Person{
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,14 +16,13 @@ public class Student extends Person{
 
 
 
-
-    public Student(String firstName, String lastName, String address, int postcode, String city, Long tlf, String email) {
+    public Student(String firstName, String lastName, String address, int postcode, String city, String email, Long tlf) {
         super(firstName, lastName);
         this.address = address;
         this.postcode = postcode;
-        this.tlf = tlf;
         this.city = city;
         this.email = email;
+        this.tlf = tlf;
     }
 
     public Student(){
@@ -40,11 +37,11 @@ public class Student extends Person{
         this.id = id;
     }
 
-    public String getaddress() {
+    public String getAddress() {
         return address;
     }
 
-    public void setaddress(String address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
@@ -79,6 +76,4 @@ public class Student extends Person{
     public void setTlf(Long tlf) {
         this.tlf = tlf;
     }
-
-
 }

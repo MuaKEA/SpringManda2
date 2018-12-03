@@ -1,7 +1,6 @@
 package com.example.demo.Model;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 public class Course {
@@ -19,15 +18,15 @@ public class Course {
     private String content;
     private String learningActivities;
     private String examForm;
-    private String teachers;
 
 
-
+    @OneToOne
+    private Teacher teachers;
 
     public Course() {
     }
 
-    public Course(String courseName, String courseLanguage, Integer ects, Integer minStudents, Integer maxStudents, Integer expectedNumber, String preRequisites, String learningOutcome, String content, String learningActivities, String examForm, String teachers) {
+    public Course(String courseName, String courseLanguage, Integer ects, Integer minStudents, Integer maxStudents, Integer expectedNumber, String preRequisites, String learningOutcome, String content, String learningActivities, String examForm, Teacher teachers) {
         this.courseName = courseName;
         this.courseLanguage = courseLanguage;
         this.ects = ects;
@@ -138,13 +137,20 @@ public class Course {
         this.examForm = examForm;
     }
 
-    public String getTeachers() {
+    public Teacher getTeachers() {
         return teachers;
     }
 
-    public void setTeachers(String teachers) {
+    public void setTeachers(Teacher teachers) {
         this.teachers = teachers;
     }
 
 
+    @Override
+    public String toString(){
+        return String.format("id: %s courseName: %s courseLanguage: %s ects: %s minStudents: %s maxStudents: %s expectedNumber: %s preRequisites: %s learningOutcome: %s  content: %s learningActivitys: %s examForm: %s teachers: %s ",
+                this.id, this.courseName, this.courseLanguage, this.ects, this.minStudents, this.maxStudents, this.expectedNumber, this.preRequisites, this.learningOutcome, this.content, this.learningActivities, this.examForm, this.teachers);
+
+
+    }
 }
