@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Optional;
+
 
 @Controller
 public class StudentController {
@@ -46,8 +48,17 @@ public class StudentController {
     }
 
     @PostMapping("chosecourse")
-    public String choosecourse(@ModelAttribute WaitingList waitingList,@RequestParam(defaultValue = "1") Long[] courseList) {
+    public String choosecourse(@ModelAttribute WaitingList waitingList,@RequestParam() Long[] courseList) {
+        for (int i = 0; i <courseList.length ; i++) {
+        WaitingList w=new WaitingList();
+        Student student= stuRepo.findById(Id).get();
+        Course course = courseRepository.findById(courseList[i]).get();
+        w.setCourse(course);
+        w.setStudent(student);
+        waitinglistRepo.save(w);
 
+
+        }
         return "redirect:/conformations";
     }
 

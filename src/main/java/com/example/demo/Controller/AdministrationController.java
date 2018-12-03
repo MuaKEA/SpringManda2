@@ -61,15 +61,14 @@ public class AdministrationController {
 
     @GetMapping("/waitinglist")
     public String waitingList(Model model){
-        System.out.println(waitinglistRepo.findAll());
-
+model.addAttribute("waitingList",waitinglistRepo.findAll());
 
         return "waitinglist";
     }
 
     @PostMapping("/waitinglist")
     public String waitinglist(WaitingList waitingList) {
-
+      waitinglistRepo.save(waitingList);
 
         return "redirect:/";
     }
