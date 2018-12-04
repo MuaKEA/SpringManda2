@@ -1,62 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <title>Menu</title>
+    <title>Courses</title>
 
     <!--/*/ <th:block th:include="fragments/navbarHead :: head"></th:block> /*/-->
+
 </head>
 <body>
 
 <!--/*/ <th:block th:replace="fragments/navbarBody :: navbarTeacher"></th:block> /*/-->
 
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th scope="col">name</th>
-        <th scope="col">language</th>
-        <th scope="col">Ects</th>
-        <th scope="col">min-students</th>
-        <th scope="col">max-students</th>
-        <th scope="col">expected</th>
-        <th scope="col">P_requisites</th>
-        <th scope="col">Learning outcome</th>
-        <th scope="col">Content</th>
-        <th scope="col">activities</th>
-        <th scope="col">Examform</th>
-        <th scope="col">Teachers</th>
-    </tr>
-    </thead>
-    <tbody>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container mb-3">
+        <div class="row">
+            <div class="container div-center mb-3">
+                <h1 class="page-heading mb-3">Courses</h1>
+            </div>
+        </div>
 
+        <div class="container input-bg input-padding">
+            <table class="table table-striped table-list">
+                <thead>
+                <tr>
+                    <th scope="col">Course</th>
+                    <th scope="col">Ects</th>
+                    <th scope="col">Min # of students</th>
+                    <th scope="col">Max # of students</th>
+                    <th scope="col">Teacher</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="course:${studentList}">
+                    <td th:text="${course.courseName}">erg</td>
+                    <td th:text="${course.ects}">erg</td>
+                    <td th:text="${course.minStudents}">erg</td>
+                    <td th:text="${course.maxStudents}">erg</td>
+                    <td th:text="${course.teachers}"></td>
 
+                    <td>
+                        <a th:href="@{'/editcourse?id='+${course.getId()}}" class="btn btn-primary">Rediger</a>
+                        <a th:href="@{'/deletecourse?id='+${course.getId()}}" onclick="return confirm('Bekræft sletning')" class="btn btn-danger">Slet</a>
 
-    <tr th:each="course:${studentList}">
-        <td th:text="${course.courseName}"></td>
-        <td th:text="${course.courseLanguage}"></td>
-        <td th:text="${course.ects}"></td>
-        <td th:text="${course.minStudents}"></td>
-        <td th:text="${course.maxStudents}"></td>
-        <td th:text="${course.expectedNumber}"></td>
-        <td th:text="${course.preRequisites}"></td>
-        <td th:text="${course.learningOutcome}"></td>
-        <td th:text="${course.content}"></td>
-        <td th:text="${course.learningActivities}"></td>
-        <td th:text="${course.examForm}"></td>
-        <td th:text="${course.teachers}"></td>
+                    </td>
 
-        <td>
-            <a th:href="@{'/editcourse?id='+${course.getId()}}" class="knap">Rediger</a>
-            <a th:href="@{'/deletecourse?id='+${course.getId()}}" onclick="return confirm('Bekræft sletning')" class="knap">Slet</a>
-
-        </td>
-
-    </tr>
-
-    </tbody>
-</table>
-
-
-
-
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 </body>
 </html>

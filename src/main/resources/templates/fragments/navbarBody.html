@@ -71,12 +71,12 @@
             </li>
         </ul>
         <ul class="navbar-nav">
-            <li class="nav-item-color">
+            <li class="nav-item-color" th:classappend="${#httpServletRequest.getRequestURI() == '/createcourse' ? 'active':''}">
                 <a class="navbar-fix nav-link link" href="/createcourse">New course</a>
             </li>
         </ul>
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item-color">
+            <li class="nav-item-color" th:classappend="${#httpServletRequest.getRequestURI() == '/ShowCourses' ? 'active':''}">
                 <a class="navbar-fix nav-link link" href="/ShowCourses">Courses</a>
             </li>
         </ul>

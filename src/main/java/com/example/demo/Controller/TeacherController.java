@@ -23,6 +23,7 @@ public class TeacherController {
         return "teacherMenu";
     }
 
+    //Fix id
     @GetMapping("/createcourse")
     public String Createcourse(Model model){
         model.addAttribute("course",new Course());
@@ -42,7 +43,6 @@ public class TeacherController {
     @GetMapping("/ShowCourses")
     public String showCourse(Model model){
         model.addAttribute("studentList",courseRepository.findAll());
-
         return"ShowCourses";
     }
 

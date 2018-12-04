@@ -8,11 +8,11 @@ html body {
     background-image: url("MandatoryB.jpg");
 
     /* Full height */
-    height: 100%;
+    height: 100vh;
 
     /* Center and scale the image nicely */
-    /*background-position: 0 55px;*/
-    background-repeat: no-repeat;
+    background-position: 0 55px;
+    /*background-repeat: no-repeat;*/
     background-size: cover;
 }
 
@@ -53,7 +53,7 @@ nav {
 }
 
 .nav-bg-color {
-    background-color: #134370;
+    background-color: #133965;
 }
 
 .navbar-fix {
@@ -76,27 +76,38 @@ nav {
 }
 
 .home {
-    width: 75px;
+    width: 87px;
     padding-right: 10px;
-    padding-left: 10px;
+    padding-left: 13px;
 }
 
 .home-bg {
     background-color: white;
 }
 
+.input-bg {
+    background-color: #1a558e;
+}
+
+.input-padding {
+    padding-top: 15px;
+}
+
 .fa-home {
     color: #24a2b6;
 }
 
-.link:hover {
-    background-color: white !important;
-    color: #13567f !important;
+/*.navbar-dark .navbar-nav > .active {
+    background-color: #134370 !important;
+    color: white;
+}*/
 
+.link:hover {
+    background-color: #134370;
+    color: white;
 }
 
 .navbar-nav li a {
-    color: white !important;
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -115,5 +126,54 @@ nav {
 }
 
 .jumbotron {
-    background: rgba(90, 90, 90, 0.50);
+    background: rgb(19, 67, 112);
+    margin-left: 87px;
+    margin-right: 87px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.page-heading {
+    font-size: 32px;
+    font-family: "Helvetica Neue Condensed",sans-serif;
+    font-weight: 500;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.input-heading {
+    font-size: 19px;
+    font-family: "Helvetica Neue Condensed",sans-serif;
+    font-weight: 500;
+    color: white;
+    text-transform: uppercase;
+}
+
+.input-group-text {
+    background-color: #b7d3e8;
+    border: 1px solid #0c5582;
+}
+
+.form-control {
+    border: 1px solid #0c5582;
+}
+
+.div-center {
+    text-align: center;
+}
+
+table {
+    background-color: #1a558e;
+    border:1px solid #2e70a4;
+    color: white;
+}
+
+table.table-list > thead > tr > th {
+    border:1px solid #2e70a4;
+    font-size: 15px;
+    font-family: "Helvetica Neue Condensed",sans-serif;
+    font-weight: 500;
+    color: white;
+    text-transform: uppercase;
 }
