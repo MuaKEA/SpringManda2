@@ -1,75 +1,53 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org/">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8">
-    <title>Courses</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Approval</title>
+
+    <!--/*/ <th:block th:include="fragments/navbarHead :: head"></th:block> /*/-->
 
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light" id="nav_top">
-    <a class="navbar-brand" href="#">Courses</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/">Home </a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="/save_course">create course </a>
-            </li>
-        </ul>
-        <span class="navbar-text">
-      Welcome <span id="name_span"></span>
-    </span>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container mb-3">
+        <div class="row">
+            <div class="container div-center mb-3">
+                <h1 class="page-heading mb-3">Waiting List</h1>
+            </div>
+        </div>
+
+        <div class="container input-bg input-padding">
+            <table class="table table-striped table-list">
+                <thead>
+                <tr>
+                    <th scope="col">Course</th>
+                    <th scope="col">Ects</th>
+                    <th scope="col">Min # of students</th>
+                    <th scope="col">Max # of students</th>
+                    <th scope="col">Teacher</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="waitinglist:${waitingList}">
+                    <td th:text="${waitinglist.courseName}"></td>
+                    <td th:text="${waitinglist.ects}"></td>
+                    <td th:text="${waitinglist.minStudents}"></td>
+                    <td th:text="${waitinglist.maxStudents}"></td>
+                    <td th:text="${waitinglist.teachers}"></td>
+
+                    <td>
+                        <a th:href="@{'/editcourse?id='+${course.getId()}}" class="btn btn-primary">Rediger</a>
+                        <a th:href="@{'/deletecourse?id='+${course.getId()}}" onclick="return confirm('Bekræft sletning')" class="btn btn-danger">Slet</a>
+
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-</nav>
-
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th scope="col">name</th>
-        <th scope="col">language</th>
-        <th scope="col">Ects</th>
-        <th scope="col">min-students</th>
-        <th scope="col">max-students</th>
-        <th scope="col">expected</th>
-        <th scope="col">P_requisites</th>
-        <th scope="col">Learning outcome</th>
-        <th scope="col">Content</th>
-        <th scope="col">activities</th>
-        <th scope="col">Examform</th>
-        <th scope="col">Teachers</th>
-    </tr>
-    </thead>
-    <tbody>
-
-
-
-    <tr th:each="waitinglist:${waitingList}">
-        <td th:text="${waitinglist.courseName}"></td>
-        <td th:text="${waitinglist.courseLanguage}"></td>
-        <td th:text="${waitinglist.ects}"></td>
-        <td th:text="${waitinglist.minStudents}"></td>
-        <td th:text="${waitinglist.maxStudents}"></td>
-
-
-        <td>
-            <a th:href="@{'/editcourse?id='+${course.getId()}}" class="knap">Rediger</a>
-            <a th:href="@{'/deletecourse?id='+${course.getId()}}" onclick="return confirm('Bekræft sletning')" class="knap">Slet</a>
-
-        </td>
-
-    </tr>
-
-    </tbody>
-</table>
-
-
-
+</div>
 
 </body>
 </html>
