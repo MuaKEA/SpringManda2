@@ -55,7 +55,7 @@ public class StudentController {
         return "chooseCourse";
     }
 
-    @PostMapping("chosecourse")
+    @PostMapping("choosecourse")
     public String choosecourse(@ModelAttribute WaitingList waitingList,@RequestParam(value = "courseids[]") Long[] courseList) {
         for (int i = 0; i <courseList.length ; i++) {
         WaitingList w=new WaitingList();

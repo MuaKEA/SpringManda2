@@ -54,7 +54,7 @@ public class AdministrationController {
 
 
 
-        return "redirect:/index";
+        return "redirect:/teacherMenu";
 
 
       }

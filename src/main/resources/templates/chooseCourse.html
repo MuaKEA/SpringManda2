@@ -1,90 +1,70 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/"><head>
-    <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<html>
+<head lang="en">
+    <title>Create Course</title>
 
-        #myInput {
-            background-position: 10px 10px;
-            background-repeat: no-repeat;
-            width: 100%;
-            font-size: 16px;
-            padding: 12px 20px 12px 40px;
-            border: 1px solid #ddd;
-            margin-bottom: 12px;
-        }
+    <!--/*/ <th:block th:include="fragments/navbarHead :: head"></th:block> /*/-->
 
-        #myTable {
-            border-collapse: collapse;
-            width: 100%;
-            border: 1px solid #ddd;
-            font-size: 18px;
-        }
-
-        #myTable th, #myTable td {
-            text-align: left;
-            padding: 12px;
-        }
-
-        #myTable tr {
-            border-bottom: 1px solid #ddd;
-        }
-
-        #myTable tr.header, #myTable tr:hover {
-            background-color: #f1f1f1;
-        }
-    </style>
-</head>
 <body>
 
-<h2>courses</h2>
+<!--/*/ <th:block th:replace="fragments/navbarBody :: navbarTeacher"></th:block> /*/-->
 
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for course.." title="Type in a course name">
-<tr class="table table-striped">>
-
-
-    <th style="width:60%;">Name</th>
-    <th style="width:40%;">language</th>
-    <th style="width:40%;">Ects</th>
-    <th style="width:40%;">P_requisites</th>
-    <th style="width:40%;">Learning outcome</th>
-    <th style="width:40%;">Content</th>
-    <th style="width:40%;">activities</th>
-    <th style="width:40%;">Examform</th>
-    <th style="width:40%;">Teacher</th>
-    <th style="width:40%;">vælg</th>
-
-</tr>
-<form action="/chosecourse" method="Post">
-
-<table id="myTable">
-
-    <tr th:each="course: ${courseList}">>
-        <td th:text="${course.courseName}"></td>
-        <td th:text="${course.courseLanguage}"></td>
-        <td th:text="${course.ects}"></td>
-        <td th:text="${course.preRequisites}"></td>
-        <td th:text="${course.learningOutcome}"></td>
-        <td th:text="${course.content}"></td>
-        <td th:text="${course.learningActivities}"></td>
-        <td th:text="${course.examForm}"></td>
-        <td th:text="${course.teachers}"></td>
-        <td>
-            <input type="checkbox" name="courseids[]" th:value="${course.id}" th:checked="${#lists.contains(courseList, course.id)}"/>
-        </td>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container mb-3">
+        <div class="row">
+            <div class="container div-center">
+                <h1 class="page-heading mb-3">Choose course</h1>
+            </div>
+        </div>
+        <div class="container input-bg input-padding">
 
 
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for course.." title="Type in a course name">
+            <form action="/chosecourse" method="Post">
 
-    </tr>
-</table>
-    <input type="submit" value="Submit">
+                <table class="table table-striped table-list mb-3">
+                    <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">language</th>
+                        <th scope="col">Ects</th>
+                        <th scope="col">Prequisites</th>
+                        <th scope="col">Material</th>
+                        <th scope="col">Content</th>
+                        <th scope="col">activities</th>
+                        <th scope="col">Examform</th>
+                        <th scope="col">Teacher</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="course: ${courseList}">
+                        <td th:text="${course.courseName}"></td>
+                        <td th:text="${course.courseLanguage}"></td>
+                        <td th:text="${course.ects}"></td>
+                        <td th:text="${course.preRequisites}"></td>
+                        <td th:text="${course.learningOutcome}"></td>
+                        <td th:text="${course.content}"></td>
+                        <td th:text="${course.learningActivities}"></td>
+                        <td th:text="${course.examForm}"></td>
+                        <td th:text="${course.teachers}"></td>
+
+                        <td>
+                            <input type="checkbox" name="courseids[]" th:value="${course.id}" th:checked="${#lists.contains(courseList, course.id)}"/>
+                        </td>
+
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="container div-center">
+                    <button class="btn btn-success" type="submit" value="Submit">Submit</button>
+                </div>
 
 
-</form>
-
+            </form>
+        </div>
+    </div>
+</div>
 
 <script>
     function myFunction() {
