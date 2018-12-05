@@ -9,5 +9,6 @@ import java.util.List;
 public interface StuRepository extends CrudRepository<Student,Long>{
 
     Person findByEmail(String email);
+    Student findStudentById(Long id);
 }
 

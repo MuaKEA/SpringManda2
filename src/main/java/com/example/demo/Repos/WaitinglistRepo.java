@@ -8,7 +8,8 @@ import java.util.List;
 
 public interface WaitinglistRepo extends CrudRepository<WaitingList,Long> {
     List<WaitingList> findAll();
-    List<WaitingList> findAllByStudentId(Long id);
+    List<WaitingList> findStudentById(Long id);
+    List<WaitingList> findByAssigned(Boolean assigned);
 
-
+    Iterable<WaitingList> findAllByStudentId(Long id);
 }

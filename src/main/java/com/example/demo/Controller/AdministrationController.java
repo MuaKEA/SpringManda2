@@ -54,23 +54,41 @@ public class AdministrationController {
 
 
 
-        return "redirect:/adminMenu";
+        return "redirect:/index";
 
 
       }
 
-    @GetMapping("/waitinglist")
-    public String waitingList(Model model){
-model.addAttribute("waitingList",waitinglistRepo.findAll());
+       @GetMapping("/RejectOrAccept")
+        public String accepORrejectstudent(Model model){
+        model.addAttribute("studentandcourses",waitinglistRepo.findByAssigned(false));
 
-        return "waitinglist";
+
+        return "RejectOrAccept";
+       }
+
+
+       ///
+    @GetMapping("/rejectStudent")
+    public String rejectStudent(@RequestParam(value = "id", defaultValue = "1") Long id){
+        waitinglistRepo.deleteById(id);
+
+        return "redirect:/RejectOrAccept";
     }
 
-    @PostMapping("/waitinglist")
-    public String waitinglist(WaitingList waitingList) {
-      waitinglistRepo.save(waitingList);
+    @GetMapping("/AccepedStudent")
+    public String AccepedStudent(@RequestParam(value = "id", defaultValue = "1") Long id, Model model){
 
-        return "redirect:/";
+        return "editCourses";
     }
+
+    @PostMapping("/rejectStudent")
+    public String editcourse(Course course){
+
+
+        return "redirect:/RejectOrAccept";
+    }
+
+
 
 }

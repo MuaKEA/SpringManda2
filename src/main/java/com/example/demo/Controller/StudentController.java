@@ -63,6 +63,8 @@ public class StudentController {
         Course course = courseRepository.findById(courseList[i]).get();
         w.setCourse(course);
         w.setStudent(student);
+        w.setDate(w.getcurrentdate());
+        w.setAssigned(false);
         waitinglistRepo.save(w);
 
 
@@ -78,7 +80,7 @@ public class StudentController {
                courseLinkedList.add(w.getCourse());
         }
         model.addAttribute("couseList",courseLinkedList);
-        System.out.println(stuRepo.findById(Id));
+        model.addAttribute("studentList",stuRepo.findStudentById(Id));
 
        return "conformations";
     }
