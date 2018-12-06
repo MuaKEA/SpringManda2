@@ -10,6 +10,8 @@
 </head>
 <body>
 
+<!--/*/ <th:block th:replace="fragments/navbarBody :: navbarAdmin"></th:block> /*/-->
+
 <div class="jumbotron jumbotron-fluid">
     <div class="container mb-3">
         <div class="row">
@@ -37,8 +39,8 @@
                     <td th:text="${Student.getCourse().getCourseName()}"></td>
                     <td th:text="${Student.getCourse().preRequisites}"></td>
                     <td>
-                        <a th:href="@{'/rejectStudent?id='+${Student.getId()}}" class="knap">Accept student</a>
-                        <a th:href="@{'/AccepedStudent?id='+${Student.getId()}}" onclick="return confirm('Bekræft afvisning')" class="knap">reject student</a>
+                        <a th:href="@{'/rejectStudent?id='+${Student.getId()}}" class="btn-sm btn-success">Accept</a>
+                        <a th:href="@{'/AccepedStudent?id='+${Student.getId()}}" onclick="return confirm('Bekræft afvisning')" class="btn-sm btn-danger">Reject</a>
 
                     </td>
                 </tr>

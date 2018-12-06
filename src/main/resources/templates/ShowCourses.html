@@ -39,8 +39,8 @@
                     <td th:text="${course.teachers}"></td>
 
                     <td>
-                        <a th:href="@{'/editcourse?id='+${course.getId()}}" class="btn btn-primary">Rediger</a>
-                        <a th:href="@{'/deletecourse?id='+${course.getId()}}" onclick="return confirm('Bekræft sletning')" class="btn btn-danger">Slet</a>
+                        <a th:href="@{'/editcourse?id='+${course.getId()}}" class="btn-sm btn-primary">Rediger</a>
+                        <a th:href="@{'/deletecourse?id='+${course.getId()}}" onclick="return confirm('Bekræft sletning')" class="btn-sm btn-danger">Slet</a>
 
                     </td>
 

@@ -30,14 +30,6 @@ public class AdministrationController {
         return "adminMenu";
     }
 
-    @GetMapping("/getStudentApprovalList")
-    public String studentApproval(Model model){
-
-
-
-             return "approvalList";
-    }
-
 
     @GetMapping("/createTeacher")
     public String createTeacher(Model model){

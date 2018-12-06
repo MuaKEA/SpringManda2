@@ -1,28 +1,31 @@
-<!--testing-->
+<!--student-->
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Start Page</title>
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/layout.css">
+<html>
+<head lang="en">
+    <title>Menu</title>
+
+    <!--/*/ <th:block th:include="fragments/navbarHead :: head"></th:block> /*/-->
+
 </head>
 <body>
+
+<!--/*/ <th:block th:replace="fragments/navbarBody :: navbarLogin"></th:block> /*/-->
+
 <form class="form-signin">
-    <div class="text-center mb-4">
-        <h1 class="h3 mb-3 font-weight-normal">Student</h1>
-    </div>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container mb-3">
+            <div class="row">
+                <div class="container div-center">
+                    <h1 class="page-heading mb-3">Menu</h1>
+                </div>
+            </div>
+            <div class="container input-bg input-padding">
     <div class="form-group">
-        <a href="/search/courses" class="btn btn-kg btn-block btn-light">Søg efter kurser</a>
-        <a href="/ShowCourses" class="btn btn-lg btn-block btn-light">Oversigt over kurser</a>
-        <a href="/createcourse" class="btn btn-lg btn-block btn-light">Tilføj kurser</a>
-        <a href="/logout" class="btn btn-lg btn-block btn-danger mt-5">Log ud</a>
+        <a href="/createStudent" class="btn btn-lg btn-block btn-light">Assigment</a>
+        <a href="/login" class="btn btn-lg btn-block btn-success mt-4">Log ind</a>
+    </div>
+            </div>
+        </div>
     </div>
 </form>
 </body>

@@ -42,19 +42,19 @@ public class StudentController {
         return "studentMenu";
     }
 
-    @GetMapping("/add/createStudent")
+    @GetMapping("/createStudent")
     public String createstudent(Model model) {
         model.addAttribute("student", new Student());
 
         return "createStudent";
     }
 
-    @PostMapping("/add/createStudent")
+    @PostMapping("/createStudent")
     public String createstudent(Student student) {
         stuRepo.save(student);
         Id=student.getId();
         LoginTable loginTable=new LoginTable(student.getEmail(),"password",2);
-
+        loginRepository.save(loginTable);
         return "redirect:/chooseCourse";
 
     }
@@ -107,8 +107,6 @@ public class StudentController {
 
        return "studentList";
     }
-
-//Post mangler
 
 
 
