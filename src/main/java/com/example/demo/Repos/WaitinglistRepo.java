@@ -10,6 +10,7 @@ public interface WaitinglistRepo extends CrudRepository<WaitingList,Long> {
     List<WaitingList> findAll();
     WaitingList findByStudentIdAndCourseId(Long id,Long id2);
     List<WaitingList> findByAssigned(Boolean assigned);
-    WaitingList deleteByStudentIdAndCourseId(Long id,Long id2);
     Iterable<WaitingList> findAllByStudentId(Long id);
+    WaitingList deleteByStudentIdAndCourseId(Long id,Long id2);
+
 }

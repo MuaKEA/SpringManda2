@@ -20,6 +20,7 @@ public class TeacherController {
     @Autowired
     public TeacherRepo teacherRepo;
 
+
     @GetMapping("/teacherMenu")
     public String adminMenu(){
         return "teacherMenu";
@@ -69,7 +70,6 @@ public class TeacherController {
 
     @GetMapping("/editcourse")
     public String editcourse(@RequestParam(value = "id", defaultValue = "1") Long id, Model model){
-
         model.addAttribute("course",courseRepository.findById(id));
         return "editCourses";
     }
@@ -77,7 +77,7 @@ public class TeacherController {
     @PostMapping("/editcourse")
     public String editcourse(Course course){
         courseRepository.save(course);
-
+        courseRepository.deleteById(course.getId());
 
         return "redirect:/ShowCourses";
     }

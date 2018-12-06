@@ -79,20 +79,13 @@ public class StudentController {
 
 
         }
-        return "redirect:/conformations";
+        return "redirect:/";
     }
 
-    @GetMapping("/conformations")
-    public String conformations(Model model) {
-        ArrayList<Course> courseLinkedList = new ArrayList<>();
+    @GetMapping("/myCourses")
+    public String myCourses(){
 
-        for (WaitingList w : waitinglistRepo.findAllByStudentId(Id)) {
-            courseLinkedList.add(w.getCourse());
-        }
-        model.addAttribute("couseList", courseLinkedList);
-        model.addAttribute("studentList", stuRepo.findStudentById(Id));
-
-        return "conformations";
+       return "myCourses";
     }
 
     @GetMapping("/studentList")
