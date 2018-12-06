@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -46,7 +47,7 @@ public class AdministrationController {
         loginRepository.save(loginTable);
 
 
-        return "redirect:/teacherMenu";
+        return "redirect:/adminMenu";
 
 
       }
@@ -61,20 +62,21 @@ public class AdministrationController {
 
 
        ///
-    @GetMapping("/rejectStudent")
-    public String rejectStudent(@RequestParam(value = "id", defaultValue = "1") Long id){
-        waitinglistRepo.deleteById(id);
+    @GetMapping("/rejectStudent/{id}/{courseid}")
+    public String rejectStudent(@PathVariable(value = "id") Long id, @PathVariable(value = "courseid") Long courseid){
+        waitinglistRepo.deleteByStudentIdAndCourseId(id,courseid);
 
         return "redirect:/RejectOrAccept";
     }
 
-    @GetMapping("/AccepedStudent")
-    public String AccepedStudent(@RequestParam(value = "id", defaultValue = "1") Long id){
-        WaitingList w=waitinglistRepo.findStudentById(id);
+    @GetMapping("/AccepedStudent/{id}/{courseid}")
+    public String AccepedStudent(@PathVariable(value = "id") Long id, @PathVariable(value = "courseid") Long courseid){
+        System.out.println(id + "" + courseid);
+        WaitingList w=waitinglistRepo.findByStudentIdAndCourseId(id,courseid);
+        System.out.println(w.toString());
         w.setAssigned(true);
         waitinglistRepo.save(w);
-        waitinglistRepo.deleteById(id);
-        return "redirect:/RejectOrAccept\"";
+        return "redirect:/RejectOrAccept";
     }
 
 

@@ -86,4 +86,14 @@ public class WaitingList {
         this.date = date;
     }
 
+    @Override
+    public String toString() {
+        return "WaitingList{" +
+                "id=" + id +
+                ", assigned=" + assigned +
+                ", date='" + date + '\'' +
+                ", course=" + course +
+                ", student=" + student +
+                '}';
+    }
 }
