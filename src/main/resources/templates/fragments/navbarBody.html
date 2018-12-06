@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav home-bg">
             <li class="nav-item home">
-                <a class="navbar-fix nav-link" href="/login"><i class="fas fa-home home"></i></a>
+                <a class="navbar-fix nav-link" href="/"><i class="fas fa-home home"></i></a>
             </li>
         </ul>
     </div>
@@ -59,9 +59,9 @@
                 <a class="navbar-fix nav-link" href="/studentMenu"><i class="fas fa-home home"></i></a>
             </li>
         </ul>
-        <ul class="navbar-nav">
-            <li class="nav-item-color" th:classappend="${#httpServletRequest.getRequestURI() == '/ShowCourses' ? 'active':''}">
-                <a class="navbar-fix nav-link link" href="/ShowCourses">My courses</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item-color" th:classappend="${#httpServletRequest.getRequestURI() == '/myCourses' ? 'active':''}">
+                <a class="navbar-fix nav-link link" href="/myCourses">My courses</a>
             </li>
         </ul>
         <span class="navbar-text mr-3">Logged in: student</span>

@@ -46,7 +46,7 @@ public class AdministrationController {
         loginRepository.save(loginTable);
 
 
-        return "redirect:/teacherMenu";
+        return "redirect:/adminMenu";
 
 
       }
@@ -60,7 +60,6 @@ public class AdministrationController {
        }
 
 
-       ///
     @GetMapping("/rejectStudent")
     public String rejectStudent(@RequestParam(value = "id", defaultValue = "1") Long id){
         waitinglistRepo.deleteById(id);
