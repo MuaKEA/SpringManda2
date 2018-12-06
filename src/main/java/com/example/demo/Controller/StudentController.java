@@ -99,7 +99,7 @@ public class StudentController {
     public String studentList(Model model){
         ArrayList<Course> courseLinkedList= new ArrayList<>();
 
-        for (WaitingList w : waitinglistRepo.findAllByStudentId(Id)) {
+        for (WaitingList w : waitinglistRepo.findByAssigned(true)) {
                courseLinkedList.add(w.getCourse());
         }
         model.addAttribute("couseList",courseLinkedList);
