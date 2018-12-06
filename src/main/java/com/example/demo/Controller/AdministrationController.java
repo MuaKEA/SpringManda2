@@ -1,10 +1,7 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Model.*;
-import com.example.demo.Repos.CourseRepository;
-import com.example.demo.Repos.StuRepository;
-import com.example.demo.Repos.TeacherRepo;
-import com.example.demo.Repos.WaitinglistRepo;
+import com.example.demo.Repos.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +21,8 @@ public class AdministrationController {
     public WaitinglistRepo waitinglistRepo;
     @Autowired
     public TeacherRepo teacherRepo;
+    @Autowired
+    public loginRepository loginRepository;
 
 
     @GetMapping("/adminMenu")
@@ -51,7 +50,8 @@ public class AdministrationController {
       @PostMapping("/createTeacher")
       public String createTeacher(Teacher teacher){
         teacherRepo.save(teacher);
-
+          LoginTable loginTable=new LoginTable(teacher.getEmail(),"password",1);
+        loginRepository.save(loginTable);
 
 
         return "redirect:/index";
@@ -77,17 +77,12 @@ public class AdministrationController {
     }
 
     @GetMapping("/AccepedStudent")
-    public String AccepedStudent(@RequestParam(value = "id", defaultValue = "1") Long id, Model model){
-
-        return "editCourses";
+    public String AccepedStudent(@RequestParam(value = "id", defaultValue = "1") Long id){
+        waitinglistRepo.findById(id).get().setAssigned(true);
+        return "redirect:/RejectOrAccept\"";
     }
 
-    @PostMapping("/rejectStudent")
-    public String editcourse(Course course){
 
-
-        return "redirect:/RejectOrAccept";
-    }
 
 
 

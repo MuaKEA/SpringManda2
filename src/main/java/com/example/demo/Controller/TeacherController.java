@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class TeacherController {
     @Autowired
@@ -22,6 +24,17 @@ public class TeacherController {
     public String adminMenu(){
         return "teacherMenu";
     }
+
+
+
+    @GetMapping("/teacher/")
+    public String chefPage(HttpSession session) {
+        if (Login.isLoggedIn(session) && Login.isTeacher(session))
+            return "/chef/index";
+        else
+            return "redirect:/";
+    }
+
 
     //Fix id
     @GetMapping("/createcourse")

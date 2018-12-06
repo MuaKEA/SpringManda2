@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Approval</title>
@@ -34,7 +34,7 @@
                             <label for="inputEmail" class="input-group-text">Email</label>
                         </div>
                         <input type="email" id="inputEmail" class="form-control" name="email"
-                               autofocus="true" autocomplete="off">
+                               autofocus="true" value="admin@admin.dk" autocomplete="off">
                     </div>
                 </div>
                 <div class="row">
@@ -42,12 +42,12 @@
                         <div class="input-group-prepend">
                         <label class="input-group-text" for="inputPassword">Adgangskode</label>
                         </div>
-                        <input type="password" id="inputPassword" class="form-control" name="password">
+                        <input type="password" id="inputPassword" value="password" class="form-control" name="password">
                     </div>
                 </div>
                 </div>
                 <div class="container div-center">
-                    <button class="btn btn-success" type="submit" value="Log Ind">Submit</button>
+                    <input name="action" class="btn btn-success" type="submit" value="Log Ind">Submit</input>
                 </div>
             </div>
         </div>

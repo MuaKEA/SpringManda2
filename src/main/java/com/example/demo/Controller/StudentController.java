@@ -4,6 +4,7 @@ import com.example.demo.Model.*;
 import com.example.demo.Repos.CourseRepository;
 import com.example.demo.Repos.StuRepository;
 import com.example.demo.Repos.WaitinglistRepo;
+import com.example.demo.Repos.loginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,9 +29,16 @@ public class StudentController {
    private CourseRepository courseRepository;
    @Autowired
    private WaitinglistRepo waitinglistRepo;
+   @Autowired
+   private loginRepository loginRepository;
 
-    @GetMapping("/studentMenu")
+
+   @GetMapping("/studentMenu")
     public String adminMenu(){
+       LoginTable login=loginRepository.findByEmail("admin@admin.dk");
+       System.out.println(login);
+
+
         return "studentMenu";
     }
 
@@ -45,6 +53,8 @@ public class StudentController {
     public String createstudent(Student student) {
         stuRepo.save(student);
         Id=student.getId();
+        LoginTable loginTable=new LoginTable(student.getEmail(),"password",2);
+
         return "redirect:/chooseCourse";
 
     }
