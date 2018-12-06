@@ -65,7 +65,7 @@ public class StudentController {
         return "chooseCourse";
     }
 
-    @PostMapping("chosecourse")
+    @PostMapping("choosecourse")
     public String choosecourse(@ModelAttribute WaitingList waitingList,@RequestParam(value = "courseids[]") Long[] courseList) {
         for (int i = 0; i <courseList.length ; i++) {
         WaitingList w=new WaitingList();
@@ -83,7 +83,20 @@ public class StudentController {
     }
 
     @GetMapping("/conformations")
-    public String conformations(Model model){
+    public String conformations(Model model) {
+        ArrayList<Course> courseLinkedList = new ArrayList<>();
+
+        for (WaitingList w : waitinglistRepo.findAllByStudentId(Id)) {
+            courseLinkedList.add(w.getCourse());
+        }
+        model.addAttribute("couseList", courseLinkedList);
+        model.addAttribute("studentList", stuRepo.findStudentById(Id));
+
+        return "conformations";
+    }
+
+    @GetMapping("/studentList")
+    public String studentList(Model model){
         ArrayList<Course> courseLinkedList= new ArrayList<>();
 
         for (WaitingList w : waitinglistRepo.findAllByStudentId(Id)) {
@@ -92,7 +105,7 @@ public class StudentController {
         model.addAttribute("couseList",courseLinkedList);
         model.addAttribute("studentList",stuRepo.findStudentById(Id));
 
-       return "conformations";
+       return "studentList";
     }
 
 //Post mangler

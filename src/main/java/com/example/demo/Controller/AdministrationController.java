@@ -54,7 +54,7 @@ public class AdministrationController {
         loginRepository.save(loginTable);
 
 
-        return "redirect:/index";
+        return "redirect:/teacherMenu";
 
 
       }
