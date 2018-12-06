@@ -22,7 +22,7 @@ import java.util.Optional;
 @Controller
 public class StudentController {
     public Long Id;
-
+    public String email;
     @Autowired
     private StuRepository stuRepo;
    @Autowired
@@ -34,7 +34,8 @@ public class StudentController {
 
 
    @GetMapping("/studentMenu{email}")
-    public String adminMenu( @RequestParam("email") String username){
+    public String adminMenu( @RequestParam(value = "email" )  String username){
+       System.out.println(username);
        Student student=stuRepo.findByEmail(username);
          Id=student.getId();
 

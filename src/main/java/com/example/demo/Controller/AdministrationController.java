@@ -72,9 +72,7 @@ public class AdministrationController {
 
     @GetMapping("/AccepedStudent/{id}/{courseid}")
     public String AccepedStudent(@PathVariable(value = "id") Long id, @PathVariable(value = "courseid") Long courseid){
-        System.out.println(id + "" + courseid);
         WaitingList w=waitinglistRepo.findByStudentIdAndCourseId(id,courseid);
-        System.out.println(w.toString());
         w.setAssigned(true);
         waitinglistRepo.save(w);
         return "redirect:/RejectOrAccept";
