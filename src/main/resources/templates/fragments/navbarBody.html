@@ -29,17 +29,17 @@
             </li>
         </ul>
         <ul class="navbar-nav">
-            <li class="nav-item-color">
-                <a class="navbar-fix nav-link link" href="/getStudentList">Student list</a>
+            <li class="nav-item-color" th:classappend="${#httpServletRequest.getRequestURI() == '/studentList' ? 'active':''}">
+                <a class="navbar-fix nav-link link" href="/studentList">Student list</a>
             </li>
         </ul>
         <ul class="navbar-nav">
-            <li class="nav-item-color">
-                <a class="navbar-fix nav-link link" href="/getStudentApprovalList">Approve student</a>
+            <li class="nav-item-color" th:classappend="${#httpServletRequest.getRequestURI() == '/RejectOrAccept' ? 'active':''}">
+                <a class="navbar-fix nav-link link" href="/RejectOrAccept">Approve student</a>
             </li>
         </ul>
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item-color">
+            <li class="nav-item-color" th:classappend="${#httpServletRequest.getRequestURI() == '/createTeacher' ? 'active':''}">
                 <a class="navbar-fix nav-link link" href="/createTeacher">Create Teacher</a>
             </li>
         </ul>
@@ -60,7 +60,7 @@
             </li>
         </ul>
         <ul class="navbar-nav">
-            <li class="nav-item-color">
+            <li class="nav-item-color" th:classappend="${#httpServletRequest.getRequestURI() == '/ShowCourses' ? 'active':''}">
                 <a class="navbar-fix nav-link link" href="/ShowCourses">My courses</a>
             </li>
         </ul>

@@ -39,8 +39,8 @@
                     <td th:text="${Student.getCourse().getCourseName()}"></td>
                     <td th:text="${Student.getCourse().preRequisites}"></td>
                     <td>
-                        <a th:href="@{'/rejectStudent?id='+${Student.getId()}}" class="btn-sm btn-success">Accept</a>
-                        <a th:href="@{'/AccepedStudent?id='+${Student.getId()}}" onclick="return confirm('Bekræft afvisning')" class="btn-sm btn-danger">Reject</a>
+                        <a th:href="@{'/AccepedStudent?id='+${Student.getId()}}" class="btn-sm btn-success">Accept</a>
+                        <a th:href="@{'/rejectStudent?id='+${Student.getId()}}" onclick="return confirm('Bekræft afvisning')" class="btn-sm btn-danger">Reject</a>
 
                     </td>
                 </tr>
