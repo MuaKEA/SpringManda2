@@ -31,7 +31,7 @@ public class SessionController {
     @GetMapping("/login")
     public String viewLogin(Model model) {
 	    model.addAttribute("loginFailed", loginFailed);
-        return "redirect:/login";
+        return "login";
     }
 
 
