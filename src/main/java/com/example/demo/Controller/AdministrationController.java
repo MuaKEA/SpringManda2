@@ -70,7 +70,10 @@ public class AdministrationController {
 
     @GetMapping("/AccepedStudent")
     public String AccepedStudent(@RequestParam(value = "id", defaultValue = "1") Long id){
-        waitinglistRepo.findById(id).get().setAssigned(true);
+        WaitingList w=waitinglistRepo.findStudentById(id);
+        w.setAssigned(true);
+        waitinglistRepo.save(w);
+        waitinglistRepo.deleteById(id);
         return "redirect:/RejectOrAccept\"";
     }
 
