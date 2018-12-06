@@ -61,10 +61,11 @@ public class AdministrationController {
        }
 
 
-       ///
+
     @GetMapping("/rejectStudent/{id}/{courseid}")
     public String rejectStudent(@PathVariable(value = "id") Long id, @PathVariable(value = "courseid") Long courseid){
-        waitinglistRepo.deleteByStudentIdAndCourseId(id,courseid);
+        WaitingList w=waitinglistRepo.findByStudentIdAndCourseId(id,courseid);
+        waitinglistRepo.deleteById(w.getId());
 
         return "redirect:/RejectOrAccept";
     }

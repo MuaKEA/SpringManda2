@@ -37,10 +37,6 @@ public class SessionController {
 
 
     public  boolean login(String email, String password, HttpSession httpSession)  {
-
-        System.out.println("#" +email + "#");
-        System.out.println("#"+password + "#");
-
         LoginTable test = LoginRepository.findByEmail(email);
 
 
@@ -82,7 +78,6 @@ public class SessionController {
             HttpSession session)  {
 
 
-        System.out.println(username);
 
 
 
@@ -91,7 +86,7 @@ public class SessionController {
 		        loginFailed = true;
 	        } else {
 		        loginFailed = false;
-		        return ((int) session.getAttribute("NIVEAU")) == 1 ? "redirect:/teacherMenu" : ((int) session.getAttribute("NIVEAU")) == 2 ? "redirect:/studentMenu" : ((int) session.getAttribute("NIVEAU") == 3 ? "redirect:/adminMenu":"redirect:/" );
+		        return ((int) session.getAttribute("NIVEAU")) == 1 ? "redirect:/teacherMenu" : ((int) session.getAttribute("NIVEAU")) == 2 ? "redirect:/studentMenu" + "?email=" +username : ((int) session.getAttribute("NIVEAU") == 3 ? "redirect:/adminMenu":"redirect:/" );
 	        }
 
 

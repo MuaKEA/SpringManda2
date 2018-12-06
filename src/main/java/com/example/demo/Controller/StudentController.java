@@ -34,10 +34,10 @@ public class StudentController {
 
 
    @GetMapping("/studentMenu")
-    public String adminMenu(){
-       LoginTable login=loginRepository.findByEmail("admin@admin.dk");
-       System.out.println(login);
-
+    public String adminMenu( @RequestParam("email") String username){
+       System.out.println(username);
+       Student student=stuRepo.findByEmail(username);
+         Id=student.getId();
 
         return "studentMenu";
     }
@@ -83,14 +83,15 @@ public class StudentController {
     }
 
     @GetMapping("/myCourses")
-    public String myCourses(){
+    public String myCourses(Model model){
+        model.addAttribute("studentList",waitinglistRepo.findByStudentIdAndAssigned(Id,true));
 
        return "myCourses";
     }
 
     @GetMapping("/studentList")
     public String studentList(Model model){
-        ArrayList<Course> courseLinkedList= new ArrayList<>();
+        MyArrayList<Course> courseLinkedList= new MyArrayList<>();
 
         for (WaitingList w : waitinglistRepo.findByAssigned(true)) {
                courseLinkedList.add(w.getCourse());

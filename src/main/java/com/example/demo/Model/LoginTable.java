@@ -52,6 +52,7 @@ public class LoginTable {
         return Niveau;
     }
 
+
     public void setNiveau(int niveau) {
         Niveau = niveau;
     }
