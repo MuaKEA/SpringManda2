@@ -33,9 +33,8 @@ public class StudentController {
    private loginRepository loginRepository;
 
 
-   @GetMapping("/studentMenu")
+   @GetMapping("/studentMenu{email}")
     public String adminMenu( @RequestParam("email") String username){
-       System.out.println(username);
        Student student=stuRepo.findByEmail(username);
          Id=student.getId();
 
