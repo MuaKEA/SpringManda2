@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">firstname</th>
+        <th scope="col">lastname</th>
+        <th scope="col">coursename</th>
+        <th scope="col">language</th>
+        <th scope="col">Ects</th>
+        <th scope="col">P_requisites</th>
+        <th scope="col">Examform</th>
+        <th scope="col">Teachers</th>
+
+    <tr th:each="course:${couseList}">
+        <label th:text="${course.courseName}"></label><br>
+        <label th:text="${course.courseLanguage}"></label><br>
+        <label th:text="${course.ects}"></label><br>
+        <label th:text="${course.preRequisites}"></label><br>
+        <label th:text="${course.examForm}"></label><br>
+        <label th:text="${course.teachers}"></label><br>
+    </tr>
+
+
+    </tr>
+    </thead>
+</table>
+    <tbody>
+
+
+
+    <table class="table table-striped">
+        <tr th:each="student:${studentList}">
+        <label th:text="${student.firstName}"></label><br>
+        <label th:text="${student.lastName}"></label><br>
+    </tr>
+
+
+
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
