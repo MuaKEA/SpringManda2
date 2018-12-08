@@ -2,8 +2,9 @@ package com.example.demo.Model;
 
 
 import javax.persistence.*;
+
 @Entity
-public class Student extends Person{
+public class Student extends Person {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Long id;
@@ -12,8 +13,6 @@ public class Student extends Person{
     private String city;
     private String email;
     private Long tlf;
-
-
 
 
     public Student(String firstName, String lastName, String address, int postcode, String city, String email, Long tlf) {
@@ -25,7 +24,7 @@ public class Student extends Person{
         this.tlf = tlf;
     }
 
-    public Student(){
+    public Student() {
 
     }
 

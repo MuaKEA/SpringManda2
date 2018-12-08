@@ -22,10 +22,9 @@ public class TeacherController {
 
 
     @GetMapping("/teacherMenu")
-    public String adminMenu(){
+    public String adminMenu() {
         return "teacherMenu";
     }
-
 
 
     @GetMapping("/teacher/")
@@ -39,14 +38,14 @@ public class TeacherController {
 
     //Fix id
     @GetMapping("/createcourse")
-    public String Createcourse(Model model){
-        model.addAttribute("course",new Course());
-        model.addAttribute("teacherList",teacherRepo.findAll());
+    public String Createcourse(Model model) {
+        model.addAttribute("course", new Course());
+        model.addAttribute("teacherList", teacherRepo.findAll());
         return "save_course";
     }
 
     @PostMapping("/createcourse")
-    public String Createcourse(Course course){
+    public String Createcourse(Course course) {
 
         courseRepository.save(course);
 
@@ -55,33 +54,32 @@ public class TeacherController {
 
 
     @GetMapping("/ShowCourses")
-    public String showCourse(Model model){
-        model.addAttribute("studentList",courseRepository.findAll());
-        return"ShowCourses";
+    public String showCourse(Model model) {
+        model.addAttribute("studentList", courseRepository.findAll());
+        return "ShowCourses";
     }
 
 
     @GetMapping("/deletecourse")
-    public String delete(@RequestParam(value = "id", defaultValue = "1") Long id){
+    public String delete(@RequestParam(value = "id", defaultValue = "1") Long id) {
         courseRepository.deleteById(id);
 
         return "redirect:/ShowCourses";
     }
 
     @GetMapping("/editcourse")
-    public String editcourse(@RequestParam(value = "id", defaultValue = "1") Long id, Model model){
-        model.addAttribute("course",courseRepository.findById(id));
+    public String editcourse(@RequestParam(value = "id", defaultValue = "1") Long id, Model model) {
+        model.addAttribute("course", courseRepository.findById(id));
         return "editCourses";
     }
 
     @PostMapping("/editcourse")
-    public String editcourse(Course course){
+    public String editcourse(Course course) {
         courseRepository.save(course);
         courseRepository.deleteById(course.getId());
 
         return "redirect:/ShowCourses";
     }
-
 
 
 }

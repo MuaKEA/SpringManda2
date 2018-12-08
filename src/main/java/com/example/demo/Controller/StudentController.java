@@ -8,10 +8,8 @@ import com.example.demo.Repos.loginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -25,19 +23,19 @@ public class StudentController {
     public String email;
     @Autowired
     private StuRepository stuRepo;
-   @Autowired
-   private CourseRepository courseRepository;
-   @Autowired
-   private WaitinglistRepo waitinglistRepo;
-   @Autowired
-   private loginRepository loginRepository;
+    @Autowired
+    private CourseRepository courseRepository;
+    @Autowired
+    private WaitinglistRepo waitinglistRepo;
+    @Autowired
+    private loginRepository loginRepository;
 
 
-   @GetMapping("/studentMenu{email}")
-    public String adminMenu( @RequestParam(value = "email" )  String username){
-       System.out.println(username);
-       Student student=stuRepo.findByEmail(username);
-         Id=student.getId();
+    @GetMapping("/studentMenu{email}")
+    public String adminMenu(@RequestParam(value = "email") String username) {
+        System.out.println(username);
+        Student student = stuRepo.findByEmail(username);
+        Id = student.getId();
 
         return "studentMenu";
     }
@@ -52,8 +50,8 @@ public class StudentController {
     @PostMapping("/createStudent")
     public String createstudent(Student student) {
         stuRepo.save(student);
-        Id=student.getId();
-        LoginTable loginTable=new LoginTable(student.getEmail(),"password",2);
+        Id = student.getId();
+        LoginTable loginTable = new LoginTable(student.getEmail(), "password", 2);
         loginRepository.save(loginTable);
         return "redirect:/chooseCourse";
 
@@ -66,16 +64,16 @@ public class StudentController {
     }
 
     @PostMapping("choosecourse")
-    public String choosecourse(@ModelAttribute WaitingList waitingList,@RequestParam(value = "courseids[]") Long[] courseList) {
-        for (int i = 0; i <courseList.length ; i++) {
-        WaitingList w=new WaitingList();
-        Student student= stuRepo.findById(Id).get();
-        Course course = courseRepository.findById(courseList[i]).get();
-        w.setCourse(course);
-        w.setStudent(student);
-        w.setDate(w.getcurrentdate());
-        w.setAssigned(false);
-        waitinglistRepo.save(w);
+    public String choosecourse(@ModelAttribute WaitingList waitingList, @RequestParam(value = "courseids[]") Long[] courseList) {
+        for (int i = 0; i < courseList.length; i++) {
+            WaitingList w = new WaitingList();
+            Student student = stuRepo.findById(Id).get();
+            Course course = courseRepository.findById(courseList[i]).get();
+            w.setCourse(course);
+            w.setStudent(student);
+            w.setDate(w.getcurrentdate());
+            w.setAssigned(false);
+            waitinglistRepo.save(w);
 
 
         }
@@ -83,26 +81,26 @@ public class StudentController {
     }
 
     @GetMapping("/myCourses")
-    public String myCourses(Model model){
-        model.addAttribute("studentList",waitinglistRepo.findByStudentIdAndAssigned(Id,true));
+    public String myCourses(Model model) {
+        model.addAttribute("studentList", waitinglistRepo.findByStudentIdAndAssigned(Id, true));
 
-       return "myCourses";
+        return "myCourses";
     }
 
     @GetMapping("/studentList")
-    public String studentList(Model model){
-        MyArrayList<Course> courseLinkedList= new MyArrayList<>();
+    public String studentList(Model model) {
+        MyArrayList<Course> courseMyArrayList = new MyArrayList<>();
 
         for (WaitingList w : waitinglistRepo.findByAssigned(true)) {
-               courseLinkedList.add(w.getCourse());
-        }
-        model.addAttribute("couseList",courseLinkedList);
-        model.addAttribute("studentList",stuRepo.findStudentById(Id));
+            courseMyArrayList.add(w.getCourse());
 
-       return "studentList";
+        }
+        model.addAttribute("couseList", courseMyArrayList);
+        model.addAttribute("studentList", stuRepo.findStudentById(Id));
+
+        return "studentList";
     }
 
 
-
-
 }
+

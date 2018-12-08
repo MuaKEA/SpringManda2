@@ -27,59 +27,55 @@ public class AdministrationController {
 
 
     @GetMapping("/adminMenu")
-    public String adminMenu(){
+    public String adminMenu() {
         return "adminMenu";
     }
 
 
     @GetMapping("/createTeacher")
-    public String createTeacher(Model model){
-        model.addAttribute("teacher",new Teacher());
-
+    public String createTeacher(Model model) {
+        model.addAttribute("teacher", new Teacher());
 
 
         return "CreateTeachers";
     }
-      @PostMapping("/createTeacher")
-      public String createTeacher(Teacher teacher){
+
+    @PostMapping("/createTeacher")
+    public String createTeacher(Teacher teacher) {
         teacherRepo.save(teacher);
-          LoginTable loginTable=new LoginTable(teacher.getEmail(),"password",1);
+        LoginTable loginTable = new LoginTable(teacher.getEmail(), "password", 1);
         loginRepository.save(loginTable);
 
 
         return "redirect:/adminMenu";
 
 
-      }
+    }
 
-       @GetMapping("/RejectOrAccept")
-        public String accepORrejectstudent(Model model){
-        model.addAttribute("studentandcourses",waitinglistRepo.findByAssigned(false));
+    @GetMapping("/RejectOrAccept")
+    public String accepORrejectstudent(Model model) {
+        model.addAttribute("studentandcourses", waitinglistRepo.findByAssigned(false));
 
 
         return "RejectOrAccept";
-       }
-
+    }
 
 
     @GetMapping("/rejectStudent/{id}/{courseid}")
-    public String rejectStudent(@PathVariable(value = "id") Long id, @PathVariable(value = "courseid") Long courseid){
-        WaitingList w=waitinglistRepo.findByStudentIdAndCourseId(id,courseid);
+    public String rejectStudent(@PathVariable(value = "id") Long id, @PathVariable(value = "courseid") Long courseid) {
+        WaitingList w = waitinglistRepo.findByStudentIdAndCourseId(id, courseid);
         waitinglistRepo.deleteById(w.getId());
 
         return "redirect:/RejectOrAccept";
     }
 
     @GetMapping("/AccepedStudent/{id}/{courseid}")
-    public String AccepedStudent(@PathVariable(value = "id") Long id, @PathVariable(value = "courseid") Long courseid){
-        WaitingList w=waitinglistRepo.findByStudentIdAndCourseId(id,courseid);
+    public String AccepedStudent(@PathVariable(value = "id") Long id, @PathVariable(value = "courseid") Long courseid) {
+        WaitingList w = waitinglistRepo.findByStudentIdAndCourseId(id, courseid);
         w.setAssigned(true);
         waitinglistRepo.save(w);
         return "redirect:/RejectOrAccept";
     }
-
-
-
 
 
 }

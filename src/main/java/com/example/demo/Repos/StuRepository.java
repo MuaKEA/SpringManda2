@@ -6,9 +6,10 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface StuRepository extends CrudRepository<Student,Long>{
+public interface StuRepository extends CrudRepository<Student, Long> {
 
     Student findByEmail(String email);
+
     Student findStudentById(Long id);
 }
 

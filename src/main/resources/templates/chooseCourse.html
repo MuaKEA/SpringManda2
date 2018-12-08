@@ -21,7 +21,8 @@
         <div class="container input-bg input-padding">
 
 
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for course.." title="Type in a course name">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for course.."
+                   title="Type in a course name">
             <form action="/choosecourse" method="Post">
 
                 <table class="table table-striped table-list mb-3">
@@ -52,7 +53,8 @@
                         <td th:text="${course.teachers}"></td>
 
                         <td>
-                            <input type="checkbox" name="courseids[]" th:value="${course.id}" th:checked="${#lists.contains(courseList, course.id)}"/>
+                            <input type="checkbox" name="courseids[]" th:value="${course.id}"
+                                   th:checked="${#lists.contains(courseList, course.id)}"/>
                         </td>
 
                     </tr>

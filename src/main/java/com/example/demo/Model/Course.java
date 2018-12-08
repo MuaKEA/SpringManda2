@@ -147,7 +147,7 @@ public class Course {
 
 
     @Override
-    public String toString(){
+    public String toString() {
         return String.format("id: %s courseName: %s courseLanguage: %s ects: %s minStudents: %s maxStudents: %s expectedNumber: %s preRequisites: %s learningOutcome: %s  content: %s learningActivitys: %s examForm: %s teachers: %s ",
                 this.id, this.courseName, this.courseLanguage, this.ects, this.minStudents, this.maxStudents, this.expectedNumber, this.preRequisites, this.learningOutcome, this.content, this.learningActivities, this.examForm, this.teachers);
 

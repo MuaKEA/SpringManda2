@@ -135,7 +135,7 @@ nav {
 
 .page-heading {
     font-size: 32px;
-    font-family: "Helvetica Neue Condensed",sans-serif;
+    font-family: "Helvetica Neue Condensed", sans-serif;
     font-weight: 500;
     color: white;
     text-transform: uppercase;
@@ -144,7 +144,7 @@ nav {
 
 .input-heading {
     font-size: 19px;
-    font-family: "Helvetica Neue Condensed",sans-serif;
+    font-family: "Helvetica Neue Condensed", sans-serif;
     font-weight: 500;
     color: white;
     text-transform: uppercase;
@@ -165,14 +165,14 @@ nav {
 
 table {
     background-color: #1a558e;
-    border:1px solid #2e70a4;
+    border: 1px solid #2e70a4;
     color: white;
 }
 
 table.table-list > thead > tr > th {
-    border:1px solid #2e70a4;
+    border: 1px solid #2e70a4;
     font-size: 15px;
-    font-family: "Helvetica Neue Condensed",sans-serif;
+    font-family: "Helvetica Neue Condensed", sans-serif;
     font-weight: 500;
     color: white;
     text-transform: uppercase;

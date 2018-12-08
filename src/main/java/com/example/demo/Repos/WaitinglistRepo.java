@@ -6,13 +6,18 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface WaitinglistRepo extends CrudRepository<WaitingList,Long> {
+public interface WaitinglistRepo extends CrudRepository<WaitingList, Long> {
     List<WaitingList> findAll();
-    WaitingList findByStudentIdAndCourseId(Long id,Long id2);
+
+    WaitingList findByStudentIdAndCourseId(Long id, Long id2);
+
     List<WaitingList> findByAssigned(Boolean assigned);
+
     Iterable<WaitingList> findAllByStudentId(Long id);
-    WaitingList deleteByStudentIdAndCourseId(Long id,Long id2);
-    List<WaitingList> findByStudentIdAndAssigned(Long id,Boolean b);
+
+    WaitingList deleteByStudentIdAndCourseId(Long id, Long id2);
+
+    List<WaitingList> findByStudentIdAndAssigned(Long id, Boolean b);
 
 
 }

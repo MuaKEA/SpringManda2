@@ -15,12 +15,13 @@ public class LoginTable {
     private String password;
     private int Niveau;
 
-    public LoginTable(String email, String password,int Niveau) {
+    public LoginTable(String email, String password, int Niveau) {
         this.email = email;
         this.password = password;
-        this.Niveau=Niveau;
+        this.Niveau = Niveau;
     }
-    public LoginTable(){
+
+    public LoginTable() {
 
     }
 

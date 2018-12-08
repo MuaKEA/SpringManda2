@@ -4,6 +4,7 @@ package com.example.demo.Model;
 import com.example.demo.Repos.loginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -19,7 +20,6 @@ public class Login {
     }
 
 
-
     public static void logout(HttpSession session) {
         session.removeAttribute("ID");
         session.removeAttribute("NIVEAU");
@@ -28,12 +28,16 @@ public class Login {
 
 
     public static boolean isTeacher(HttpSession session) {
-        return (int)session.getAttribute("NIVEAU") == 1;
+        return (int) session.getAttribute("NIVEAU") == 1;
 
-    } public static boolean isStudent(HttpSession session) {
-        return (int)session.getAttribute("NIVEAU") == 2;
+    }
 
-    } public static boolean isadministrator(HttpSession session) {
+    public static boolean isStudent(HttpSession session) {
+        return (int) session.getAttribute("NIVEAU") == 2;
+
+    }
+
+    public static boolean isadministrator(HttpSession session) {
         return (int) session.getAttribute("NIVEAU") == 3;
     }
 }

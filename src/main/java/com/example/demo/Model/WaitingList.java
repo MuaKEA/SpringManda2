@@ -21,15 +21,14 @@ public class WaitingList {
     private Student student;
 
 
-
     public WaitingList(Boolean assigned, Course course, Student student, String date) {
         this.assigned = assigned;
         this.course = course;
         this.student = student;
-        this.date=date;
+        this.date = date;
     }
 
-    public WaitingList(){
+    public WaitingList() {
 
     }
 
@@ -80,7 +79,6 @@ public class WaitingList {
     }
 
     public void setDate(String date) {
-
 
 
         this.date = date;

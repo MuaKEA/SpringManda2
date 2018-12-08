@@ -20,7 +20,7 @@ public class SessionController {
     @Autowired
     private loginRepository LoginRepository;
 
-	private boolean loginFailed = false;
+    private boolean loginFailed = false;
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {
@@ -30,13 +30,12 @@ public class SessionController {
 
     @GetMapping("/login")
     public String viewLogin(Model model) {
-	    model.addAttribute("loginFailed", loginFailed);
+        model.addAttribute("loginFailed", loginFailed);
         return "login";
     }
 
 
-
-    public  boolean login(String email, String password, HttpSession httpSession)  {
+    public boolean login(String email, String password, HttpSession httpSession) {
         LoginTable test = LoginRepository.findByEmail(email);
 
 
@@ -48,19 +47,20 @@ public class SessionController {
         return false;
     }
 
-    public  boolean checkPassword(String password) {
-        List<LoginTable> passwords=LoginRepository.findByPassword(password);
+    public boolean checkPassword(String password) {
+        List<LoginTable> passwords = LoginRepository.findByPassword(password);
 
         for (LoginTable l : passwords) {
 
-            if (password.equals(l.getPassword()));
+            if (password.equals(l.getPassword())) ;
             return true;
 
         }
 
-        return false ;
+        return false;
     }
-    private  boolean checkUsername(String email) {
+
+    private boolean checkUsername(String email) {
         List<LoginTable> users = LoginRepository.findAll();
         for (LoginTable loginTable : users) {
             if (loginTable.getEmail().equals(email))
@@ -74,22 +74,19 @@ public class SessionController {
     public String login(
             @RequestParam("email") String username,
             @RequestParam("password") String password,
-            @RequestParam(name = "action",defaultValue = "Log Ind" ) String action,
-            HttpSession session)  {
+            @RequestParam(name = "action", defaultValue = "Log Ind") String action,
+            HttpSession session) {
 
 
-
-
-
-        if(action.equals("Log Ind"))
+        if (action.equals("Log Ind"))
             if (!login(username, password, session)) {
-		        loginFailed = true;
-	        } else {
-		        loginFailed = false;
-		        return ((int) session.getAttribute("NIVEAU")) == 1 ? "redirect:/teacherMenu" : ((int) session.getAttribute("NIVEAU")) == 2 ? "redirect:/studentMenu" + "?email=" +username : ((int) session.getAttribute("NIVEAU") == 3 ? "redirect:/adminMenu":"redirect:/" );
-	        }
+                loginFailed = true;
+            } else {
+                loginFailed = false;
+                return ((int) session.getAttribute("NIVEAU")) == 1 ? "redirect:/teacherMenu" : ((int) session.getAttribute("NIVEAU")) == 2 ? "redirect:/studentMenu" + "?email=" + username : ((int) session.getAttribute("NIVEAU") == 3 ? "redirect:/adminMenu" : "redirect:/");
+            }
 
 
-	    return "redirect:/";
+        return "redirect:/";
     }
 }

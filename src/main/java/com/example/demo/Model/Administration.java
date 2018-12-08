@@ -5,22 +5,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 @Entity
 
 public class Administration extends Person {
 
-        @GeneratedValue(strategy = GenerationType.AUTO)
-        @Id
-        private Long id;
-        private String Email;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    private Long id;
+    private String Email;
 
 
-    
-
-    public Administration(String firstName, String lastName,String Email) {
+    public Administration(String firstName, String lastName, String Email) {
         super(firstName, lastName);
-        this.Email=Email;
-    
+        this.Email = Email;
+
     }
 
     public Long getId() {

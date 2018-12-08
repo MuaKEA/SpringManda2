@@ -11,7 +11,7 @@
 <!--/*/ <th:block th:replace="fragments/navbarBody :: navbarAdmin"></th:block> /*/-->
 
 <body>
-<form class="form-signin"  method="post" action="/createTeacher" >
+<form class="form-signin" method="post" action="/createTeacher">
 
     <div class="jumbotron jumbotron-fluid">
         <div class="container mb-3">
@@ -67,23 +67,23 @@
                         <input class="form-control" type="text" th:field="${teacher.city}" required="true">
                     </div>
                 </div>
-                    <div class="row">
+                <div class="row">
                     <div class="input-group mb-3 col-sm-6">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Tlf</span>
                         </div>
                         <input class="form-control" type="text" th:field="${teacher.tlf}" required="true">
                     </div>
-                    </div>
+                </div>
 
-                        <div class="row">
+                <div class="row">
                     <div class="input-group mb-3 col-sm-6">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Email</span>
                         </div>
                         <input class="form-control" type="text" th:field="${teacher.email}" required="true">
                     </div>
-                    </div>
+                </div>
             </div>
         </div>
         <div class="container div-center">

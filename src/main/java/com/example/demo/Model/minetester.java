@@ -7,15 +7,15 @@ import java.util.Date;
 
 public class minetester {
 
-public static void main (String[] args){
-    DateFormat dateFormat = new SimpleDateFormat("MM/dd-yyyy");
+    public static void main(String[] args) {
+        DateFormat dateFormat = new SimpleDateFormat("MM/dd-yyyy");
 
 
-    //get current date time with Calendar()
-    Calendar cal = Calendar.getInstance();
-    System.out.println(dateFormat.format(cal.getTime()));
+        //get current date time with Calendar()
+        Calendar cal = Calendar.getInstance();
+        System.out.println(dateFormat.format(cal.getTime()));
 
 
-}
+    }
 
 }

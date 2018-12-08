@@ -25,7 +25,7 @@ public class Teacher extends Person {
         this.tlf = tlf;
     }
 
-    public Teacher(){
+    public Teacher() {
 
     }
 
@@ -36,7 +36,6 @@ public class Teacher extends Person {
     public void setId(Long id) {
         this.id = id;
     }
-
 
 
     public String getAddress() {
@@ -78,8 +77,6 @@ public class Teacher extends Person {
     public void setTlf(Long tlf) {
         this.tlf = tlf;
     }
-
-
 
 
 }

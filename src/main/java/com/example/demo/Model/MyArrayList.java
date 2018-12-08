@@ -1,11 +1,12 @@
 package com.example.demo.Model;
+
 import java.lang.reflect.Type;
 import java.util.*;
 import java.util.function.Consumer;
 
-public  class MyArrayList<T> implements MyList{
+public class MyArrayList<T> implements MyList {
     private int size = 0;
-    public  Object[] myArraylist = new Object[5];
+    public Object[] myArraylist = new Object[5];
 
     @Override
     public int size() {
@@ -54,8 +55,8 @@ public  class MyArrayList<T> implements MyList{
     public Object set(int index, Object object) {
         if (myArraylist[index] == null) {
             myArraylist[index] = object;
-        }else {
-            for(int i = 0; i < myArraylist.length; i++){
+        } else {
+            for (int i = 0; i < myArraylist.length; i++) {
 
             }
         }
@@ -68,9 +69,9 @@ public  class MyArrayList<T> implements MyList{
     @Override
     public String toString() {
         String result = "[";
-        for(int i = 0; i < size(); i++) {
+        for (int i = 0; i < size(); i++) {
             result += myArraylist[i];
-            if(i != size-1){//skal uddybes
+            if (i != size - 1) {//skal uddybes
                 result += ", ";
             }
         }

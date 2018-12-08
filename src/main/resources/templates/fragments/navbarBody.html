@@ -3,8 +3,10 @@
 <head lang="en">
     <meta charset="UTF-8"/>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"/>
     <link rel="stylesheet" type="text/css" href="../../static/style.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -29,17 +31,20 @@
             </li>
         </ul>
         <ul class="navbar-nav">
-            <li class="nav-item-color" th:classappend="${#httpServletRequest.getRequestURI() == '/studentList' ? 'active':''}">
+            <li class="nav-item-color"
+                th:classappend="${#httpServletRequest.getRequestURI() == '/studentList' ? 'active':''}">
                 <a class="navbar-fix nav-link link" href="/studentList">Student list</a>
             </li>
         </ul>
         <ul class="navbar-nav">
-            <li class="nav-item-color" th:classappend="${#httpServletRequest.getRequestURI() == '/RejectOrAccept' ? 'active':''}">
+            <li class="nav-item-color"
+                th:classappend="${#httpServletRequest.getRequestURI() == '/RejectOrAccept' ? 'active':''}">
                 <a class="navbar-fix nav-link link" href="/RejectOrAccept">Approve student</a>
             </li>
         </ul>
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item-color" th:classappend="${#httpServletRequest.getRequestURI() == '/createTeacher' ? 'active':''}">
+            <li class="nav-item-color"
+                th:classappend="${#httpServletRequest.getRequestURI() == '/createTeacher' ? 'active':''}">
                 <a class="navbar-fix nav-link link" href="/createTeacher">Create Teacher</a>
             </li>
         </ul>
@@ -60,7 +65,8 @@
             </li>
         </ul>
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item-color" th:classappend="${#httpServletRequest.getRequestURI() == '/myCourses' ? 'active':''}">
+            <li class="nav-item-color"
+                th:classappend="${#httpServletRequest.getRequestURI() == '/myCourses' ? 'active':''}">
                 <a class="navbar-fix nav-link link" href="/myCourses">My courses</a>
             </li>
         </ul>
@@ -81,12 +87,14 @@
             </li>
         </ul>
         <ul class="navbar-nav">
-            <li class="nav-item-color" th:classappend="${#httpServletRequest.getRequestURI() == '/createcourse' ? 'active':''}">
+            <li class="nav-item-color"
+                th:classappend="${#httpServletRequest.getRequestURI() == '/createcourse' ? 'active':''}">
                 <a class="navbar-fix nav-link link" href="/createcourse">New course</a>
             </li>
         </ul>
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item-color" th:classappend="${#httpServletRequest.getRequestURI() == '/ShowCourses' ? 'active':''}">
+            <li class="nav-item-color"
+                th:classappend="${#httpServletRequest.getRequestURI() == '/ShowCourses' ? 'active':''}">
                 <a class="navbar-fix nav-link link" href="/ShowCourses">Courses</a>
             </li>
         </ul>
