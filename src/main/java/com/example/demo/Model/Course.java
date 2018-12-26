@@ -102,6 +102,13 @@ public class Course {
     }
 
     public void setPreRequisites(String preRequisites) {
+
+
+            if(preRequisites.contains("åøq")) {
+                 System.err.print("no nix åøq");
+
+            }
+
         this.preRequisites = preRequisites;
     }
 

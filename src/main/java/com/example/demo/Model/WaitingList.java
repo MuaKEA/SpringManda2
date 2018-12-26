@@ -68,7 +68,7 @@ public class WaitingList {
     public String getcurrentdate() {
         DateFormat dateFormat = new SimpleDateFormat("MM/dd-yyyy");
         Calendar cal = Calendar.getInstance();
-
+        System.out.println(dateFormat.format(cal.getTime()));
 
         return dateFormat.format(cal.getTime());
     }

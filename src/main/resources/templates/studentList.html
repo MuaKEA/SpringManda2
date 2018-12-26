@@ -1,6 +1,6 @@
 <!--admin-->
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org/">
 <head>
     <title>Students</title>
     <!--/*/ <th:block th:include="fragments/navbarHead :: head"></th:block> /*/-->
@@ -20,7 +20,7 @@
         <!--Choose course id-->
         <select name="course">
             <!--<select th:each="" onchange="location = this.options[this.selectedIndex].value;">-->
-            <option onclick="href" th:each="course:${couseList}" th:value="${course.id}"
+            <option onclick="" th:each="course:${couseList}" th:value="${course.id}"
                     th:text="${course.courseName}">
 
             </option>
@@ -39,7 +39,7 @@
                 <tbody>
 
                 <tr th:each="student:${studentList}">
-                    <td th:text="${student.firstName}">{{First name}}</td>
+                    <td th:text="${student.firstname}">{{First name}}</td>
                     <td th:text="${student.lastName}">{{Last name}}</td>
                     <td th:text="${student.tlf}">{{Phone number}}</td>
                 </tr>
