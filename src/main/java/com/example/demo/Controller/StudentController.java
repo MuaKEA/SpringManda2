@@ -26,6 +26,15 @@ public class StudentController {
     private loginRepository loginRepository;
 
 
+
+    @GetMapping("/dagensvejr")
+    public String Dagensvejr(){
+
+
+        return "dagensvejr";
+    }
+
+
     @GetMapping("/studentMenu{email}")
     public String adminMenu(@RequestParam(value = "email") String username) {
         System.out.println(username);

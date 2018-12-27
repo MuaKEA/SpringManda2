@@ -1,34 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-
-
-    <title>8.6_p5.js_api_query_user_input</title>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.js"></script>
-
-    <script type="text/javascript" src="openweatherApi.js"></script>
-
-    <style> body {
-        padding: 0;
-        margin: 0;
-    }
-
-    canvas {
-        vertical-align: top;
-    } </style>
+    <title>Title</title>
 </head>
 <body>
 
-<p>
-    City: <input id="city" value="skriv by"/>
+<form>
+    <input type="text" id="name-text" value="alice">
+    <button type="button" id="my-calc-btn">Say hello</button>
+</form>
 
-    <br/>
-    <button id="submit">submit</button>
+<div id="welcome-div">Welcome!</div>
 
-</p>
+<form>
+    <input type="text" id="post-to-find">
+    <button type="button" id="post-to-find-btn">Find</button>
+</form>
+<h1 id="show-info"></h1>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+    $(document).on('click', "#my-calc-btn", function () {
+        var name = $('#name-text').val();
+        $('#welcome-div').text("Welcome, " + name + "!");
+    });
+    $(document).on('click', "#post-to-find-btn", function () {
+        var city = $('#post-to-find').val();
+        var appid='&APPID=001b0f58045147663b1ea518d34d88b4';
+        $.ajax({
+            url: "https://api.openweathermap.org/data/2.5/weather?q=" + city + appid ,
+            method: "get",
+
+            data: {
+                city: city
+            },
+            success: function (resp) {
+                console.log(resp);
+                var city=resp.sys.country;
+                var maxtemp = resp.main.temp_max;
+                var mintemp = resp.main.temp_min;
+
+                $('#show-info').text ("Contry :" + city  +", max temp:" + maxtemp + ", minTemp: " + mintemp );
+            },
+            error: function (resp) {
+                console.log("somthing went vaery bad");
+                console.log(resp);
+            }
+        });
+    });
+</script>
+
+
 </body>
 </html>
