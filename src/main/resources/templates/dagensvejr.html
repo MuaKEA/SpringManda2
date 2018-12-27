@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <!--/*/ <th:block th:include="fragments/navbarHead :: head"></th:block> /*/-->
+
 </head>
 <body>
+<!--/*/ <th:block th:replace="fragments/navbarBody :: navbarAdmin"></th:block> /*/-->
 
-<form>
-    <input type="text" id="name-text" value="alice">
-    <button type="button" id="my-calc-btn">Say hello</button>
-</form>
+
 
 <div id="welcome-div">Welcome!</div>
 
@@ -23,10 +23,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
-    $(document).on('click', "#my-calc-btn", function () {
-        var name = $('#name-text').val();
-        $('#welcome-div').text("Welcome, " + name + "!");
-    });
     $(document).on('click', "#post-to-find-btn", function () {
         var city = $('#post-to-find').val();
         var appid='&APPID=001b0f58045147663b1ea518d34d88b4';
@@ -38,10 +34,12 @@
             success: function (resp) {
                 console.log(resp);
                 var city=resp.name;
+                var currentTemp = resp.main.temp_max;
                 var maxtemp = resp.main.temp_max;
                 var mintemp = resp.main.temp_min;
-
-                $('#show-info').text ("Contry :" + city  +", max temp:" + maxtemp + ", minTemp: " + mintemp );
+                var humid = resp.main.humidity;
+                $('#show-info').text ("Country :" + city  +", max temp:" + maxtemp + ", minTemp: " + mintemp + "humidity" + humid);
+d
             },
             error: function (resp) {
                 console.log("somthing went vaery bad");
