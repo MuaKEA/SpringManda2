@@ -17,7 +17,7 @@
     <input type="text" id="post-to-find">
     <button type="button" id="post-to-find-btn">Find</button>
 </form>
-<h1 id="show-info"></h1>
+<p id="show-info"></p>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -37,7 +37,7 @@
 
             success: function (resp) {
                 console.log(resp);
-                var city=resp.sys.country;
+                var city=resp.name;
                 var maxtemp = resp.main.temp_max;
                 var mintemp = resp.main.temp_min;
 
