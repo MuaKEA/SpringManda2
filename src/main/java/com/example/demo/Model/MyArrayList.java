@@ -26,14 +26,11 @@ public class MyArrayList<T> implements MyList {
 
 
     }
-
-
     @Override
     public Object get(int index) {
 
         return myArraylist[index];
     }
-
     @Override
     public Object remove(int index) {//skal uddybes
         myArraylist[index] = null;
@@ -65,7 +62,6 @@ public class MyArrayList<T> implements MyList {
         return myArraylist;
 
     }
-
     @Override
     public String toString() {
         String result = "[";
@@ -95,7 +91,6 @@ public class MyArrayList<T> implements MyList {
     public void remove() {
 
     }
-
     @Override
     public void forEachRemaining(Consumer action) {
 
