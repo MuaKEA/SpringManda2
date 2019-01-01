@@ -36,7 +36,7 @@ public static void main(String [] args) {
     }
 
 
-public  static void print(String name){
+public synchronized static void print(String name) {
 
     System.out.println("hallo world " + name );
 }
