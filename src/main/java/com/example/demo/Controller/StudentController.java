@@ -1,6 +1,7 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Model.*;
+import com.example.demo.MyList.MyArrayList;
 import com.example.demo.Repos.CourseRepository;
 import com.example.demo.Repos.StuRepository;
 import com.example.demo.Repos.WaitinglistRepo;

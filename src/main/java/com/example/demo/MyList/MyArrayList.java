@@ -1,6 +1,7 @@
-package com.example.demo.Model;
+package com.example.demo.MyList;
 
-import java.lang.reflect.Type;
+import com.example.demo.MyList.MyList;
+
 import java.util.*;
 import java.util.function.Consumer;
 
@@ -8,14 +9,12 @@ public class MyArrayList<T> implements MyList {
     private int size = 0;
     public Object[] myArraylist = new Object[5];
 
-    @Override
     public int size() {
 
 
         return size;
     }
 
-    @Override
     public void add(Object object) {
 
         if (myArraylist.length == size) {
@@ -26,12 +25,10 @@ public class MyArrayList<T> implements MyList {
 
 
     }
-    @Override
     public Object get(int index) {
 
         return myArraylist[index];
     }
-    @Override
     public Object remove(int index) {//skal uddybes
         myArraylist[index] = null;
         size--;
@@ -48,7 +45,6 @@ public class MyArrayList<T> implements MyList {
         return myArraylist;
     }
 
-    @Override
     public Object set(int index, Object object) {
         if (myArraylist[index] == null) {
             myArraylist[index] = object;
@@ -62,7 +58,6 @@ public class MyArrayList<T> implements MyList {
         return myArraylist;
 
     }
-    @Override
     public String toString() {
         String result = "[";
         for (int i = 0; i < size(); i++) {
@@ -75,7 +70,6 @@ public class MyArrayList<T> implements MyList {
 
         return result + "]";
     }
-
 
     @Override
     public boolean hasNext() {
@@ -91,6 +85,7 @@ public class MyArrayList<T> implements MyList {
     public void remove() {
 
     }
+
     @Override
     public void forEachRemaining(Consumer action) {
 

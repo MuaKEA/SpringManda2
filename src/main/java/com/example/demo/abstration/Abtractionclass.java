@@ -5,9 +5,7 @@ abstract class Abtractionclass {
    public String name;
    public int age;
 
-
-
-    public Abtractionclass(String name, int age){
+   public Abtractionclass(String name, int age){
      this.name=name;
      this.age=age;
     }
@@ -16,8 +14,7 @@ abstract class Abtractionclass {
         return name + " " + age;
     }
 
-
-   abstract void abstractmethod();
+    abstract void abstractmethod();
 
    public static void display2() {
         System.out.println("abtration virker");
@@ -44,6 +41,12 @@ class Test extends Abtractionclass {
     void abstractmethod() {
         System.out.println("implamentere abstract metode");
     }
-    }
+
+
+
+
+
+
+}
 
 
