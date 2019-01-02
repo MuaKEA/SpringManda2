@@ -1,19 +1,14 @@
 package com.example.demo.MyList;
 
-import java.util.Iterator;
+public interface MyList<T> {
 
-public interface MyList<T> extends Iterator {
-
-
-    int size();
-
-    void add(T element);
-
-    T get(int index);
-
-    T set(int index, Object object);
-
-    T remove(int index);
-
-    String toString();
-}
+    /**
+         * Returns the size of the list (how many elements are in the list)
+         * @return
+         */
+        int size();
+        void add(T el);
+        T get(int index);
+        T remove(int index);
+        String toString();
+    }

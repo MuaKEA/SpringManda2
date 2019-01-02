@@ -1,93 +1,56 @@
 package com.example.demo.MyList;
 
-import com.example.demo.MyList.MyList;
 
-import java.util.*;
-import java.util.function.Consumer;
+public class MyArrayList<T> implements MyList<T> {
 
-public class MyArrayList<T> implements MyList {
-    private int size = 0;
-    public Object[] myArraylist = new Object[5];
+    private T[] data = (T[]) new Object[5];
+    private int size;
 
+    @Override
     public int size() {
-
-
         return size;
+
     }
 
-    public void add(Object object) {
-
-        if (myArraylist.length == size) {
-            myArraylist = Arrays.copyOf(myArraylist, size * 2);
+    @Override
+    public void add(T element) {
+        if (size == data.length) {
+            T[] temp = data;
+            data = (T[]) new Object[size + 5];
+            for (int i = 0; i < size; i++) {
+                data[i] = temp[i];
+            }
         }
-        myArraylist[size] = object;
-        size++;
-
+        data[size++] = element;
 
     }
-    public Object get(int index) {
 
-        return myArraylist[index];
+
+    @Override
+    public T get(int index) {
+        if (index < 0 || index > size - 1) {
+            throw new IndexOutOfBoundsException("" + index);
+        }
+        return data[index];
     }
-    public Object remove(int index) {//skal uddybes
-        myArraylist[index] = null;
+
+    @Override
+    public T remove(int index) {
+        T temp = data[index];
+        for (int j = index + 1; j < size; j++) {
+            data[j - 1] = data[j];
+        }
         size--;
-
-        for (int i = 0; i < myArraylist.length; i++) {
-            if (myArraylist[i] == null) {
-                for (int k = i + 1; k < myArraylist.length; k++) {//rykker pladserne for at få i det næste index
-                    myArraylist[k - 1] = myArraylist[k];//
-                }
-                myArraylist[myArraylist.length - 1] = null;//det sidste index i arrayet er = null
-                break;
-            }
-        }
-        return myArraylist;
+        data[size] = null;
+        return temp;
     }
 
-    public Object set(int index, Object object) {
-        if (myArraylist[index] == null) {
-            myArraylist[index] = object;
-        } else {
-            for (int i = 0; i < myArraylist.length; i++) {
-
-            }
-        }
-
-
-        return myArraylist;
-
-    }
+    @Override
     public String toString() {
-        String result = "[";
-        for (int i = 0; i < size(); i++) {
-            result += myArraylist[i];
-            if (i != size - 1) {//skal uddybes
-                result += ", ";
-            }
+        String result = "[" + data[0];
+        for (int i = 1; i < size; i++) {
+            result += ", " + data[i].toString();
         }
-
-
         return result + "]";
-    }
-
-    @Override
-    public boolean hasNext() {
-        return false;
-    }
-
-    @Override
-    public Object next() {
-        return null;
-    }
-
-    @Override
-    public void remove() {
-
-    }
-
-    @Override
-    public void forEachRemaining(Consumer action) {
-
     }
 }
