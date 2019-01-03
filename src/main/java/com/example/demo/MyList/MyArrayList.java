@@ -1,6 +1,8 @@
 package com.example.demo.MyList;
 
 
+import java.util.Objects;
+
 public class MyArrayList<T> implements MyList<T> {
 
     private T[] data = (T[]) new Object[5];
@@ -14,6 +16,18 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public void add(T element) {
+        indexsizechecker();
+        data[size++] = element;
+
+    }
+
+    public void set(int index, T element) {
+        data[index]=null;
+        data[index]=element;
+
+    }
+
+    private void indexsizechecker() {
         if (size == data.length) {
             T[] temp = data;
             data = (T[]) new Object[size + 5];
@@ -21,14 +35,11 @@ public class MyArrayList<T> implements MyList<T> {
                 data[i] = temp[i];
             }
         }
-        data[size++] = element;
-
     }
-
 
     @Override
     public T get(int index) {
-        if (index < 0 || index > size - 1) {
+        if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("" + index);
         }
         return data[index];
@@ -54,3 +65,4 @@ public class MyArrayList<T> implements MyList<T> {
         return result + "]";
     }
 }
+
