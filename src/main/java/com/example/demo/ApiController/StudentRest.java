@@ -45,4 +45,10 @@ public ResponseEntity<Student> updatestudent(@PathVariable Long id, @RequestPara
 
     }
 
+    @PostMapping("/student/new")
+    public ResponseEntity<Student> saveCar(Student student){
+         stuRepository.save(student);
+        return new ResponseEntity(student, HttpStatus.OK);
+    }
+
 }
