@@ -19,9 +19,9 @@
 
         <!--Choose course id-->
         <select name="course">
-            <!--<select th:each="" onchange="location = this.options[this.selectedIndex].value;">-->
-            <option onclick="" th:each="course:${couseList}" th:value="${course.id}"
-                    th:text="${course.courseName}">
+
+            <option onclick="" th:each="courses:${courseList}" th:value="${courses.id}"
+                    th:text="${courses.course.courseName}">
 
             </option>
             <!--<option th:value="${course.id}" hidden></option>-->
@@ -34,14 +34,16 @@
                     <th scope="col">First name</th>
                     <th scope="col">Last name</th>
                     <th scope="col">Phone number</th>
+                    <th scope="col">Course name</th>
                 </tr>
                 </thead>
                 <tbody>
 
-                <tr th:each="student:${studentList}">
-                    <td th:text="${student.firstname}">{{First name}}</td>
-                    <td th:text="${student.lastName}">{{Last name}}</td>
-                    <td th:text="${student.tlf}">{{Phone number}}</td>
+                <tr th:each="student:${courseList}">
+                    <td th:text="${student.student.firstName}">{{First name}}</td>
+                    <td th:text="${student.student.lastName}">{{Last name}}</td>
+                    <td th:text="${student.student.tlf}">{{Phone number}}</td>
+                    <td th:text="${student.course.courseName}">{{Phone number}}</td>
                 </tr>
 
                 </tbody>

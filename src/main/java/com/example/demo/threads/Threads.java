@@ -1,6 +1,6 @@
 package com.example.demo.threads;
 
-public class Threads  {
+public class Threads   {
  static String thread1;
  static String thread2;
 
@@ -12,15 +12,11 @@ public static void main(String [] args) {
        Thread t = new Thread(()->{
 
            for (int i = 0; i <200 ; i++) {
-
-
                print(thread1);
            }
     });
     t.setName("t");
     thread1=t.getName();
-
-
 
     Thread t2 = new Thread(()->{
         for (int i = 0; i <200 ; i++) {
@@ -34,6 +30,8 @@ public static void main(String [] args) {
     t2.start();
     t.start();
     }
+
+
 
 
 public synchronized static void print(String name) {

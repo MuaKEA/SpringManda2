@@ -92,14 +92,9 @@ public class StudentController {
 
     @GetMapping("/studentList")
     public String studentList(Model model) {
-        MyArrayList<Course> courseMyArrayList = new MyArrayList<>();
 
-        for (WaitingList w : waitinglistRepo.findByAssigned(true)) {
-            courseMyArrayList.add(w.getCourse());
 
-        }
-        model.addAttribute("couseList", courseMyArrayList);
-        model.addAttribute("studentList", stuRepo.findStudentById(Id));
+        model.addAttribute("courseList", waitinglistRepo.findByAssigned(true));
 
         return "studentList";
     }
