@@ -8,7 +8,6 @@ public class bigO {
     static ArrayList<Integer> arrayList = new ArrayList<>();
     static LinkedList<Integer> linkedList = new LinkedList<>();
     static HashMap<Integer, Object> hasmap = new HashMap();
-    static TreeSet<Integer> treeSet = new TreeSet<>();
     static int numb;
     static Long startTime;
 
@@ -24,7 +23,6 @@ public class bigO {
             arrayList.add(i);
             linkedList.add(i);
             hasmap.put(i, i);
-            treeSet.add(i);
 
 
         }
@@ -33,11 +31,7 @@ public class bigO {
     }
 
 
-    public void treeSetcoundet(){
 
-
-
-    }
 
 
     public static void arraylistandlinkedlist(List T) {
@@ -76,10 +70,23 @@ public class bigO {
         }
     }
 
+public static void hashmaptimer() {
+    System.out.println("enter a number 0-100000");
+    Scanner scan = new Scanner(System.in);
+    numb = scan.nextInt();
+    startTime = System.currentTimeMillis();
+    for (int i = 0; i < hasmap.size(); i++) {
+
+        if (hasmap.get(i).equals(numb)) {
+            long stopTime = System.currentTimeMillis();
+            long elapsedTime = stopTime - startTime;
+            System.out.println(elapsedTime + " milliseconds");
+        }
+    }
+}
 
 
-
-    public static void menu() {
+            public static void menu() {
         Scanner scan = new Scanner(System.in);
         int number;
 
@@ -99,22 +106,21 @@ public class bigO {
                     break;
 
                 case 3:
-                    System.out.println("enter a number 0-100000");
-                    numb = scan.nextInt();
-                    startTime = System.currentTimeMillis();
-                    for (int i = 0; i < hasmap.size(); i++) {
+                hashmaptimer();
 
-                        if (hasmap.get(i).equals(numb)) {
-                            long stopTime = System.currentTimeMillis();
-                            long elapsedTime = stopTime - startTime;
-                            System.out.println(elapsedTime + " milliseconds");
+                    break;
 
-                        }
-                    }
+
                 case 4:
                     arraytimer(array);
                     break;
 
+                case 5:
+                    arraytimer(array);
+                    arraylistandlinkedlist(arrayList);
+                    arraylistandlinkedlist(linkedList);
+                    hashmaptimer();
+                    break;
 
             }
 
