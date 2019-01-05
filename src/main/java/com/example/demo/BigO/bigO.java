@@ -30,13 +30,9 @@ public class bigO {
 
     }
 
-
-
-
-
     public static void arraylistandlinkedlist(List T) {
         Scanner scan = new Scanner(System.in);
-        System.out.println("enter a number 0-100000");
+        System.out.println("enter a number 0-1000000");
          numb = scan.nextInt();
          startTime = System.currentTimeMillis();
         for (int i = 0; i < T.size(); i++) {
@@ -53,15 +49,13 @@ public class bigO {
 
     public static void arraytimer(int[] a) {
         Scanner scan = new Scanner(System.in);
-        System.out.println("enter a number 0-100000");
+        System.out.println("enter a number 0-1000000");
         numb = scan.nextInt();
          startTime = System.currentTimeMillis();
-        System.out.println(startTime);
         for (int i = 0; i < a.length; i++) {
 
             if (a[i] == numb) {
                 long stopTime = System.currentTimeMillis();
-                System.out.println(stopTime);
                 long elapsedTime = stopTime - startTime;
                 System.out.println(elapsedTime +" milliseconds");
 
@@ -71,7 +65,7 @@ public class bigO {
     }
 
 public static void hashmaptimer() {
-    System.out.println("enter a number 0-100000");
+    System.out.println("enter a number 0-1000000");
     Scanner scan = new Scanner(System.in);
     numb = scan.nextInt();
     startTime = System.currentTimeMillis();
