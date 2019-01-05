@@ -64,5 +64,17 @@ public class MyArrayList<T> implements MyList<T> {
         }
         return result + "]";
     }
+
+    public void clear(){
+
+        for (int i = size; i ==0 ; i--) {
+              data[i]=null;
+
+        }
+        data = (T[]) new Object[5];
+        size=0;
+
+    }
+
 }
 

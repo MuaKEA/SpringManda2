@@ -38,6 +38,12 @@ public class Mylistmain {
        letters.set(2,"ZZ");
        letters.set(3,"WW");
         System.out.println(letters);
+         letters.clear();
+        System.out.println(letters.size());
+        for (int i = 0; i <letters.size() ; i++) {
+            System.out.println(letters.get(0));
+        }
+
 
     }
 
