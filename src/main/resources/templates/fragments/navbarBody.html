@@ -42,10 +42,16 @@
                 <a class="navbar-fix nav-link link" href="/RejectOrAccept">Approve student</a>
             </li>
         </ul>
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav">
             <li class="nav-item-color"
                 th:classappend="${#httpServletRequest.getRequestURI() == '/createTeacher' ? 'active':''}">
                 <a class="navbar-fix nav-link link" href="/createTeacher">Create Teacher</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item-color"
+                th:classappend="${#httpServletRequest.getRequestURI() == '/dagensvejr' ? 'active':''}">
+                <a class="navbar-fix nav-link link" href="/dagensvejr">Weather</a>
             </li>
         </ul>
         <span class="navbar-text mr-3">Logged in: administrator</span>
