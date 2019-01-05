@@ -177,3 +177,15 @@ table.table-list > thead > tr > th {
     color: white;
     text-transform: uppercase;
 }
+
+.show-temp {
+    font-size: 15px;
+    font-family: "Helvetica Neue Condensed", sans-serif;
+    font-weight: 500;
+    color: white;
+    text-transform: uppercase;
+}
+
+.input-padding-btm {
+    padding-bottom: 15px;
+}
