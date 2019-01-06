@@ -1,8 +1,6 @@
 package com.example.demo.MyList;
 
 
-import java.util.Objects;
-
 public class MyArrayList<T> implements MyList<T> {
 
     private T[] data = (T[]) new Object[5];

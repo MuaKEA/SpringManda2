@@ -21,8 +21,8 @@ public class TeacherController {
     public TeacherRepo teacherRepo;
 
 
-    @GetMapping("/teacherMenu")
-    public String adminMenu() {
+    @GetMapping("/teacherMenu{email}")
+    public String adminMenu(@RequestParam(value = "email") String username) {
         return "teacherMenu";
     }
 
@@ -41,6 +41,7 @@ public class TeacherController {
     public String Createcourse(Model model) {
         model.addAttribute("course", new Course());
         model.addAttribute("teacherList", teacherRepo.findAll());
+
         return "save_course";
     }
 

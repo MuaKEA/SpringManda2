@@ -20,11 +20,11 @@
         <!--Choose course id-->
         <select name="course">
 
-            <option onclick="" th:each="courses:${courseList}" th:value="${courses.id}"
+            <option onclick="" th:each="courses:${courseList}" th:value="${courses.course.id}"
                     th:text="${courses.course.courseName}">
 
             </option>
-            <!--<option th:value="${course.id}" hidden></option>-->
+            <!--<option th:value="${courses.course.id}" hidden></option>-->
         </select>
 
         <div class="container input-bg input-padding">

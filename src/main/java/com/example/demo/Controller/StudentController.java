@@ -1,7 +1,6 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Model.*;
-import com.example.demo.MyList.MyArrayList;
 import com.example.demo.Repos.CourseRepository;
 import com.example.demo.Repos.StuRepository;
 import com.example.demo.Repos.WaitinglistRepo;
@@ -11,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 
 
 @Controller
@@ -36,11 +36,10 @@ public class StudentController {
     }
 
 
-    @GetMapping("/studentMenu{email}")
-    public String adminMenu(@RequestParam(value = "email") String username) {
-        System.out.println(username);
-        Student student = stuRepo.findByEmail(username);
-        Id = student.getId();
+    @GetMapping("/studentMenu{id}")
+    public String adminMenu(@RequestParam(value = "id") Long id) {
+
+        Id = id;
 
         return "studentMenu";
     }
@@ -98,7 +97,23 @@ public class StudentController {
 
         return "studentList";
     }
-
-
+//    @GetMapping("/chooseNewcourses")
+//    public String chooseNewcourses(Model model) {
+//        List<WaitingList> student = waitinglistRepo.findAllByStudentId(Id);
+//        List<Course> courses = courseRepository.findAll();
+//        if (student.size() == 0) {
+//            model.addAttribute("courseList", courseRepository.findAll());
+//            return "chooseCourse";
+//        } else
+//            for (int i = 0; i < courses.size(); i++) {
+//                for (int j = 0; j < student.size(); j++) {
+//                    if (student.get(j).getCourse().getId().equals(courses.get(i).getId())) {
+//                        courses.remove(i);
+//                    }
+//                }
+//            }
+//        model.addAttribute("courseList", courses);
+//        return "chooseCourse";
+//    }
 }
 
