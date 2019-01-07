@@ -14,7 +14,7 @@ abstract class Abtractionclass {
         return name + " " + age;
     }
 
-    abstract void abstractmethod();
+    abstract void abstractmethods();
 
    public static void display2() {
         System.out.println("abtration virker");
@@ -29,7 +29,10 @@ class Test extends Abtractionclass {
 
     }
 
-
+    @Override
+    void abstractmethods() {
+        System.out.println("haha");
+    }
 
 
     public static void main(String[] args) {

@@ -14,6 +14,8 @@ public class TCP_Client {
         System.out.println("we are connected");
 
         while (true) {
+
+
             DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
             BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 

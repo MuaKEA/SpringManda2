@@ -10,8 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-
 
 @Controller
 public class StudentController {
@@ -25,7 +23,6 @@ public class StudentController {
     private WaitinglistRepo waitinglistRepo;
     @Autowired
     private loginRepository loginRepository;
-
 
 
     @GetMapping("/dagensvejr")
@@ -78,6 +75,8 @@ public class StudentController {
             w.setDate(w.getcurrentdate());
             w.setAssigned(false);
             waitinglistRepo.save(w);
+
+
         }
         return "redirect:/";
     }
