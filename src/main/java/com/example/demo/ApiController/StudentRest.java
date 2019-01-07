@@ -27,7 +27,10 @@ public ResponseEntity<Student> getstudents(@PathVariable Long id) {
 
 }
 @PutMapping("student/update/{id}")
-public ResponseEntity<Student> updatestudent(@PathVariable Long id, @RequestParam String firstName,@RequestParam String lastName,@RequestParam String address,@RequestParam int postcode,@RequestParam String city ,@RequestParam String email,@RequestParam Long phone){
+public ResponseEntity<Student> updatestudent(@PathVariable Long id, @RequestParam String firstName
+                                             ,@RequestParam String lastName,@RequestParam String address,
+                                             @RequestParam int postcode,@RequestParam String city
+                                            ,@RequestParam String email,@RequestParam Long phone){
 
 
     Student student= new Student(firstName,lastName,address,postcode,city,email,phone);
