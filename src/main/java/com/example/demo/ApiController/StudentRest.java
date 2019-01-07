@@ -38,7 +38,6 @@ public ResponseEntity<Student> updatestudent(@PathVariable Long id, @RequestPara
 
     return new ResponseEntity(student,HttpStatus.OK);
 }
-@ResponseBody
     @DeleteMapping("student/delete/{id}")
     public ResponseEntity<Student> delemapping(@PathVariable Long id) {
         Optional<Student> student =  stuRepository.findById(id);
