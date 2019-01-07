@@ -40,15 +40,10 @@ public ResponseEntity<Student> updatestudent(@PathVariable Long id, @RequestPara
 }
     @DeleteMapping("student/delete/{id}")
     public ResponseEntity<Student> delemapping(@PathVariable Long id) {
-        Optional<Student> student =  stuRepository.findById(id);
 
-        if(!student.isPresent()){
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
-
-        }
 
      stuRepository.deleteById(id);
-        return new ResponseEntity(student.get(),HttpStatus.ACCEPTED);
+        return new ResponseEntity("OK",HttpStatus.ACCEPTED);
 
     }
 
