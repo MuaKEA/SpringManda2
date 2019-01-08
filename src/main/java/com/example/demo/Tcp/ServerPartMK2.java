@@ -42,7 +42,7 @@ public class ServerPartMK2  {
 
 
 
-    public  void resivemessage() {
+    public void resivemessage() {
 
          new Thread(() -> {
             InputStream input;
@@ -53,7 +53,7 @@ public class ServerPartMK2  {
                     input.read(dataIn);
                     String msgIn = new String(dataIn);
                     msgIn = msgIn.trim();
-                    System.out.println(msgIn);
+                    System.out.println("message From-->"+ s.getInetAddress().getHostAddress()+ "---> " + msgIn + "<--" );
 
                 } catch (IOException e) {
                     e.printStackTrace();
