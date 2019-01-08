@@ -30,10 +30,10 @@ public ResponseEntity<Student> getstudents(@PathVariable Long id) {
 public ResponseEntity<Student> updatestudent(@PathVariable Long id, @RequestParam String firstName
                                              ,@RequestParam String lastName,@RequestParam String address,
                                              @RequestParam int postcode,@RequestParam String city
-                                            ,@RequestParam String email,@RequestParam Long phone){
+                                            ,@RequestParam String email,@RequestParam Long tlf){
 
 
-    Student student= new Student(firstName,lastName,address,postcode,city,email,phone);
+    Student student= new Student(firstName,lastName,address,postcode,city,email,tlf);
     student.setId(id);
     stuRepository.save(student);
 
