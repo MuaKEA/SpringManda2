@@ -21,19 +21,12 @@ public class TeacherController {
     public TeacherRepo teacherRepo;
 
 
-    @GetMapping("/teacherMenu{email}")
-    public String adminMenu(@RequestParam(value = "email") String username) {
+    @GetMapping("/teacherMenu")
+    public String adminMenu() {
+
         return "teacherMenu";
     }
 
-
-    @GetMapping("/teacher/")
-    public String chefPage(HttpSession session) {
-        if (Login.isLoggedIn(session) && Login.isTeacher(session))
-            return "/chef/index";
-        else
-            return "redirect:/";
-    }
 
 
     //Fix id

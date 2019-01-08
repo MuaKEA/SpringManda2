@@ -68,15 +68,13 @@
             success: function (resp) {
                 console.log(resp);
                 var city=resp.name;
-                var currentTemp = resp.main.temp;
                 var maxtemp = resp.main.temp_max;
                 var mintemp = resp.main.temp_min;
-                var humid = resp.main.temp;
+                var humid = resp.main.humidity;
                 $('#show-city').text (city);
                 $('#show-maxTemp').text (maxtemp);
                 $('#show-minTemp').text (mintemp);
                 $('#show-humid').text (humid);
-                $('#current-Temp').text (currentTemp);
 
             },
             error: function (resp) {
