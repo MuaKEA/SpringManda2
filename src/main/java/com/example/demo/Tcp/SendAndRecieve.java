@@ -29,7 +29,6 @@ public ClientHandler clientHandler;
 
                         for (int i = 0; i <clients.size() ; i++) {
                             if (clients.get(i).getUsername().equals(clientHandler.getUsername())){
-                                clients.get(i).getSocket().close();
                                 clients.remove(i);
 
                                 break;
