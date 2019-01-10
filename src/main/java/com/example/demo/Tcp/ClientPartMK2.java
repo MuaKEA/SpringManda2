@@ -18,6 +18,8 @@ public class ClientPartMK2 {
    public void ClientStartop() throws IOException {
        System.out.println("=============CLIENT==============");
        sc = new Scanner(System.in);
+       System.out.print("enter username ");
+       String username = sc.next();
        System.out.print("What is the IP for the server (type 0 for localhost): ");
        String IP = sc.next();
        if (IP.equals("0")) {
@@ -27,24 +29,31 @@ public class ClientPartMK2 {
                System.out.println("enter the ip of the Server");
               IP=sc.next();
        }
-       System.out.print("What is the PORT for the server: ");
+           System.out.print("What is the PORT for the server: ");
        int PORT_SERVER = sc.nextInt();
        socket = new Socket(IP, PORT_SERVER);
        input = socket.getInputStream();
        output = socket.getOutputStream();
-
+       String JOIN="JOIN " +  username + "," + IP + ": " + PORT_SERVER;
+       dataToSend = JOIN.getBytes();
+       output.write(dataToSend);
    }
 
         public void sendmessageTOserver(){
-         Thread T1= new Thread(()->{
+       Thread T1= new Thread(()->{
 while (true) {
+
+
+
     sc = new Scanner(System.in);
     System.out.println("Type message");
     String msgToSend = sc.nextLine();
 
     try {
-        if (msgToSend.equals(msgToSend.equals("QUIT"))) {
-               String Answer=sc.next();
+        if (msgToSend.equals("QUIT")) {
+            System.out.println("yes or no");
+            String Answer=sc.next();
+
                if(Answer.equals("yes")) {
                 dataToSend=msgToSend.getBytes();
                 output.write(dataToSend);
@@ -61,6 +70,8 @@ while (true) {
 
          });
            T1.start();
+
+
    }
 
         public void resivemessage()  {
@@ -72,18 +83,24 @@ while (true) {
                    input.read(dataIn);
                    String msgIn = new String(dataIn);
                    msgIn = msgIn.trim();
-                   System.out.println("message From-->"+ socket.getInetAddress().getHostAddress()+ "---> " + msgIn + "<--" );
+                   System.out.println(msgIn);
 
+                   if(msgIn.contains("Error:J_EOR")){
+                      System.exit(0);
+
+                       break;
+
+                   }
 
                } catch (IOException e) {
                    e.printStackTrace();
                }
 
-
        }
             });
             T1.start();
-   }
+
+        }
 
 
 

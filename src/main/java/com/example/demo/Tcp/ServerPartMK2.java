@@ -1,5 +1,7 @@
 package com.example.demo.Tcp;
 
+import org.hibernate.mapping.Join;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -13,87 +15,75 @@ import java.util.Scanner;
 public class ServerPartMK2  {
 
     final int PORT_LISTEN = 5656;
-    String clientIp;
     byte[] dataIn;
-    byte[] dataToSend;
     boolean usergodkend;
     Socket s;
-    OutputStream output;
-    InputStream input;
-    public void Connection() throws IOException {
-        usergodkend = false;
-        System.out.println("=============SERVER==============");
 
+ ArrayList<ClientHandler> clients=new ArrayList<>();
+
+
+
+
+    public void Connection() throws IOException {
+        usergodkend = true;
+        System.out.println("=============SERVER==============");
         ServerSocket server = new ServerSocket(PORT_LISTEN);
 
+        while (true) {
 
-             s = server.accept();
+            s = server.accept();
+            OutputStream output=s.getOutputStream();
+
+            InputStream input = s.getInputStream();
+            dataIn = new byte[1024];
+            input.read(dataIn);
+            String msgIn = new String(dataIn);
+            msgIn = msgIn.trim();
+            String Joinmsgin = msgIn.substring(0,4);
+            String[] temp = msgIn.split("[., ]");
+            String username=temp[1];
 
 
-            System.out.println("New client request received : " + s);
-            System.out.println("Client connected");
-            clientIp = s.getInetAddress().getHostAddress();
-            System.out.println("IP: " + clientIp);
-            System.out.println("PORT: " + s.getPort());
-            resivemessage();
-            sendmessageToclient();
+            System.out.println("Client trying to connect  <<" + username +">> " + s.getInetAddress().getHostAddress() + ":" + s.getPort());
+
+            if (!doblicateusername(username) && !Joinmsgin.equals("JOIN ")){
+                System.out.println("Client connection terminated, due duplicate username<<" + username +">> " + s.getInetAddress().getHostAddress() + ":" + s.getPort());
+
+                String fail="Error:J_EOR JOIN not found OR username already exist, restart program and try again!!";
+                byte[] send = fail.getBytes();
+                output.write(send);
+                 usergodkend=false;
+            }else {
+                System.out.println("iam here");
+                ClientHandler client = new ClientHandler(s, username);
+                System.out.println("Client connected  <<" + username + ">> " + s.getInetAddress().getHostAddress() + ":" + s.getPort());
+                clients.add(client);
+                SendAndRecieve sendAndRecieve = new SendAndRecieve(client);
+                sendAndRecieve.resivemessage(clients);
+            }
+            }
 
         }
 
+            public boolean doblicateusername(String username){
+              boolean b=true;
+                for (int i = 0; i <clients.size() ; i++) {
 
-
-    public void resivemessage() {
-
-         new Thread(() -> {
-            InputStream input;
-            while (true) {
-                try {
-                    input = s.getInputStream();
-                    dataIn = new byte[1024];
-                    input.read(dataIn);
-                    String msgIn = new String(dataIn);
-                    msgIn = msgIn.trim();
-                    System.out.println("message From-->"+ s.getInetAddress().getHostAddress()+ "---> " + msgIn + "<--" );
-
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    if(username.equals(clients.get(i).getUsername())){
+                        b=false;
+                    }
                 }
 
-            }
-        }).start();
+         return b;
     }
 
 
-        public void sendmessageToclient() {
-            Thread T1= new Thread(()->{
-              Scanner scan= new Scanner(System.in);
-                OutputStream output;
-                while(true) {
-
-                 try {
-                     System.out.println("type message");
-                     String msgIn=scan.nextLine();
-                     output = s.getOutputStream();
-                     String msgToSend = "SERVER: [sender:" + clientIp + " ]: " + msgIn;
-                     dataToSend = msgToSend.getBytes();
-                     output.write(dataToSend);
-
-
-                 } catch (IOException e) {
-                     e.printStackTrace();
-                 }
-
-
-
-            }
-            });
-            T1.start();
             }
 
 
 
 
-}
+
 
 
 
