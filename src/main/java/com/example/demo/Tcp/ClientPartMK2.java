@@ -56,13 +56,12 @@ while (true) {
             System.out.println("yes or no");
             String Answer=sc.next();
 
-               if(Answer.equals("yes") || closeapplication) {
+               if(Answer.equals("yes")) {
                    dataToSend=msgToSend.getBytes();
                    output.write(dataToSend);
                    closeapplication=true;
                    break outerloop;
                }
-        break outerloop;
         }
             dataToSend = msgToSend.getBytes();
         output.write(dataToSend);
@@ -90,10 +89,6 @@ while (true) {
                    String msgIn = new String(dataIn);
                    msgIn = msgIn.trim();
                    System.out.println(msgIn);
-
-                   if(msgIn.equals("QUITCOMMAND")){
-                       System.exit(0);
-                   }
 
                    if(msgIn.contains("Error:J_EOR") || closeapplication){
                        closeapplication=true;
