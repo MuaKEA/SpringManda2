@@ -16,23 +16,20 @@ public class ServerPartMK2  {
 
     final int PORT_LISTEN = 5656;
     byte[] dataIn;
-    boolean usergodkend;
     Socket s;
-
+    OutputStream output;
  ArrayList<ClientHandler> clients=new ArrayList<>();
 
 
 
 
     public void Connection() throws IOException {
-        usergodkend = true;
-        System.out.println("=============SERVER==============");
+        System.out.println("=============SERVER STARTED==============");
         ServerSocket server = new ServerSocket(PORT_LISTEN);
 
         while (true) {
-
             s = server.accept();
-            OutputStream output=s.getOutputStream();
+            output=s.getOutputStream();
 
             InputStream input = s.getInputStream();
             dataIn = new byte[1024];
@@ -52,9 +49,8 @@ public class ServerPartMK2  {
                 String fail="Error:J_EOR JOIN not found OR username already exist, restart program and try again!!";
                 byte[] send = fail.getBytes();
                 output.write(send);
-                 usergodkend=false;
+
             }else {
-                System.out.println("iam here");
                 ClientHandler client = new ClientHandler(s, username);
                 System.out.println("Client connected  <<" + username + ">> " + s.getInetAddress().getHostAddress() + ":" + s.getPort());
                 clients.add(client);
@@ -77,8 +73,51 @@ public class ServerPartMK2  {
          return b;
     }
 
+//     public void command() {
+//         System.out.println("welcome admin!!");
+//         Scanner scan = new Scanner(System.in);
+//         Thread commandthread = new Thread(() -> {
+//             while (true) {
+//
+//
+//                 String serverCommands = scan.next();
+//
+//                 switch (serverCommands) {
+//
+//                     case "list":
+//                         for (int i = 0; i < clients.size(); i++) {
+//                             System.out.println(clients.get(i).getUsername());
+//                         }
+//                         break;
+//
+//                     case "kick":
+//
+//                         String closecommand="QUITCOMMAND";
+//
+//                         try {
+//
+//                             byte[] datatosend=closecommand.getBytes();
+//                             output.write(datatosend);
+//
+//
+//
+//
+//                         } catch (IOException e) {
+//                             e.printStackTrace();
+//                         }
+//
+//                         break;
+//                         }
+//
+//
+//                 }
+//
+//         });
+//       commandthread.start();
+//
+//     }
+     }
 
-            }
 
 
 

@@ -4,19 +4,19 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
-import java.net.SocketException;
 import java.util.Scanner;
-import java.util.Timer;
 
 public class ClientPartMK2 {
-   private Scanner sc = new Scanner(System.in);
-   private InputStream input;
-   private OutputStream output;
-   private Socket socket;
-   private byte[] dataToSend;
+   private static Scanner sc = new Scanner(System.in);
+   private static InputStream input;
+   private static OutputStream output;
+   private static Socket socket;
+   private static byte[] dataToSend;
+   private static boolean closeapplication;
 
-   public void ClientStartop() throws IOException {
+   public static void ClientStartop() throws IOException {
        System.out.println("=============CLIENT==============");
+       closeapplication=false;
        sc = new Scanner(System.in);
        System.out.print("enter username ");
        String username = sc.next();
@@ -39,8 +39,10 @@ public class ClientPartMK2 {
        output.write(dataToSend);
    }
 
-        public void sendmessageTOserver(){
+        public static void sendmessageTOserver(){
        Thread T1= new Thread(()->{
+
+           outerloop:
 while (true) {
 
 
@@ -54,13 +56,14 @@ while (true) {
             System.out.println("yes or no");
             String Answer=sc.next();
 
-               if(Answer.equals("yes")) {
-                dataToSend=msgToSend.getBytes();
-                output.write(dataToSend);
-                System.exit(0);
+               if(Answer.equals("yes") || closeapplication) {
+                   dataToSend=msgToSend.getBytes();
+                   output.write(dataToSend);
+                   closeapplication=true;
+                   break outerloop;
                }
-               }
-
+        break outerloop;
+        }
             dataToSend = msgToSend.getBytes();
         output.write(dataToSend);
     } catch (IOException e) {
@@ -69,13 +72,16 @@ while (true) {
 }
 
          });
-           T1.start();
+        T1.start();
 
 
    }
 
-        public void resivemessage()  {
+        public static void resivemessage()  {
+
+
             Thread T1= new Thread(()->{
+      outerloop:
        while(true) {
 
                try {
@@ -85,11 +91,13 @@ while (true) {
                    msgIn = msgIn.trim();
                    System.out.println(msgIn);
 
-                   if(msgIn.contains("Error:J_EOR")){
-                      System.exit(0);
+                   if(msgIn.equals("QUITCOMMAND")){
+                       System.exit(0);
+                   }
 
-                       break;
-
+                   if(msgIn.contains("Error:J_EOR") || closeapplication){
+                       closeapplication=true;
+                      break outerloop;
                    }
 
                } catch (IOException e) {
@@ -99,7 +107,6 @@ while (true) {
        }
             });
             T1.start();
-
         }
 
 
